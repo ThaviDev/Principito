@@ -3,12 +3,13 @@ using UnityEngine;
 public class C_GravObject : MonoBehaviour
 {
     [SerializeField] private C_PlanetGrav[] m_Planets;
+    public C_PlanetGrav[] PlanetsList { get => m_Planets; set => m_Planets = value; }
     [SerializeField] private Rigidbody2D m_rb;
     void Start()
     {
         m_rb = GetComponent<Rigidbody2D>();
     }
-    void Update()
+    void FixedUpdate()
     {
         foreach (C_PlanetGrav planet in m_Planets)
         {
@@ -21,15 +22,5 @@ public class C_GravObject : MonoBehaviour
                 m_rb.AddForce(v.normalized * planet.GravityStrength * (planet.GravityRadius / dist));
             }
         }
-        /*
-        float dist = Vector2.Distance(transform.position, m_Planet.transform.position);
-
-        Vector2 v = m_Planet.transform.position - transform.position;
-
-        if (dist <= m_GravityRadius)
-        {
-            m_rb.AddForce(v.normalized * m_GravityStrength * (m_GravityRadius / dist));
-        }
-        */
     }
 }
