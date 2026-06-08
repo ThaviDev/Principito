@@ -43,18 +43,38 @@ public class C_PlayerMotor : MonoBehaviour
         }
 
 
-        if (m_rb != null || m_MoveInput != Vector2.zero && m_IsGrounded)
+        //if (m_rb != null || m_MoveInput != Vector2.zero && m_IsGrounded)
+        if (m_rb == null)
         {
-            Vector2 worldForce =  (transform.TransformDirection(m_MoveInput) * m_MoveSpeed);
-            m_rb.AddForce(worldForce * m_WalkAcceleration, ForceMode2D.Force);
-            if (m_rb.linearVelocity.magnitude > m_MoveSpeed)
-            {
-                m_rb.linearVelocity = m_rb.linearVelocity.normalized * m_MoveSpeed;
-            }
-            else
-            {
-                //m_rb.AddForce(m_rb.linearVelocity * -m_Deceleration, ForceMode2D.Force);
-            }
+            Debug.LogWarning("PlayerMotor: Rigidbody2D no asignado.");
+            return;
         }
+
+        if (m_IsGrounded)
+        {
+            GroundedMovement();
+        }
+        else
+        {
+            NotGroundedMovement();
+        }
+    }
+    private void GroundedMovement()
+    {
+        Vector2 worldForce = (transform.TransformDirection(m_MoveInput) * m_MoveSpeed);
+        m_rb.AddForce(worldForce * m_WalkAcceleration, ForceMode2D.Force);
+        if (m_rb.linearVelocity.magnitude > m_MoveSpeed)
+        {
+            m_rb.linearVelocity = m_rb.linearVelocity.normalized * m_MoveSpeed;
+        }
+        else
+        {
+            m_rb.AddForce(m_rb.linearVelocity * -m_Deceleration, ForceMode2D.Force);
+        }
+    }
+    private void NotGroundedMovement()
+    {
+        // Setting temporal para teclado, luego se cambiara a un flick de movil gesture.
+
     }
 }
