@@ -511,7 +511,7 @@ Transform:
   m_GameObject: {fileID: 265849534}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4, y: 3.52, z: 0}
+  m_LocalPosition: {x: -0.47, y: 3.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1272,7 +1272,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.9519105, g: 0, b: 1, a: 1}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1409,7 +1409,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 7}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 766597647}
@@ -1760,8 +1760,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 711469419}
-  - component: {fileID: 711469420}
   - component: {fileID: 711469421}
+  - component: {fileID: 711469420}
   m_Layer: 0
   m_Name: Planet Prototype
   m_TagString: Untagged
@@ -1821,7 +1821,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1.5
+  m_Radius: 1
 --- !u!114 &711469421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1834,9 +1834,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70cbac536bbc5324ea9ccc66a065080d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_PlanetManager
+  m_PlanetSize: 2
   m_GravityStrength: 2
-  m_GravityRadius: 5
-  m_Atmosphere: {fileID: 0}
+  m_GravityRadius: 4
+  m_Atmosphere: {fileID: 1086790939}
+  m_PlanetVisual: {fileID: 954580180}
+  m_PlanetSurfaceCollider: {fileID: 711469420}
 --- !u!1 &766597644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1846,8 +1849,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 766597647}
-  - component: {fileID: 766597646}
   - component: {fileID: 766597645}
+  - component: {fileID: 766597646}
   m_Layer: 0
   m_Name: Planet Prototype (2)
   m_TagString: Untagged
@@ -1867,9 +1870,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70cbac536bbc5324ea9ccc66a065080d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_PlanetManager
+  m_PlanetSize: 4
   m_GravityStrength: 4
   m_GravityRadius: 10
-  m_Atmosphere: {fileID: 0}
+  m_Atmosphere: {fileID: 584368349}
+  m_PlanetVisual: {fileID: 1391652491}
+  m_PlanetSurfaceCollider: {fileID: 766597646}
 --- !u!58 &766597646
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1905,7 +1911,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 3
+  m_Radius: 2
 --- !u!4 &766597647
 Transform:
   m_ObjectHideFlags: 0
@@ -2100,6 +2106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 954580178}
   - component: {fileID: 954580179}
+  - component: {fileID: 954580180}
   m_Layer: 0
   m_Name: Planet Visual
   m_TagString: Untagged
@@ -2117,7 +2124,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 711469419}
@@ -2181,6 +2188,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &954580180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954580177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e10a168ba58739458d8374c0446024a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TAG_PlanetVisual
 --- !u!1 &981150917
 GameObject:
   m_ObjectHideFlags: 0
@@ -2550,7 +2569,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 7}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 711469419}
@@ -2635,8 +2654,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1120870548}
-  - component: {fileID: 1120870547}
   - component: {fileID: 1120870546}
+  - component: {fileID: 1120870547}
   m_Layer: 0
   m_Name: Planet Prototype (1)
   m_TagString: Untagged
@@ -2656,9 +2675,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70cbac536bbc5324ea9ccc66a065080d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_PlanetManager
+  m_PlanetSize: 2
   m_GravityStrength: 2
-  m_GravityRadius: 5
-  m_Atmosphere: {fileID: 0}
+  m_GravityRadius: 4
+  m_Atmosphere: {fileID: 1128027492}
+  m_PlanetVisual: {fileID: 1384231526}
+  m_PlanetSurfaceCollider: {fileID: 1120870547}
 --- !u!58 &1120870547
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2694,7 +2716,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1.5
+  m_Radius: 1
 --- !u!4 &1120870548
 Transform:
   m_ObjectHideFlags: 0
@@ -2740,7 +2762,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 7}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1120870548}
@@ -2922,7 +2944,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1243578714
 Transform:
   m_ObjectHideFlags: 0
@@ -3180,6 +3202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1384231524}
   - component: {fileID: 1384231525}
+  - component: {fileID: 1384231526}
   m_Layer: 0
   m_Name: Planet Visual
   m_TagString: Untagged
@@ -3197,7 +3220,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1120870548}
@@ -3261,6 +3284,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1384231526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384231523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e10a168ba58739458d8374c0446024a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TAG_PlanetVisual
 --- !u!1 &1391652488
 GameObject:
   m_ObjectHideFlags: 0
@@ -3271,6 +3306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1391652489}
   - component: {fileID: 1391652490}
+  - component: {fileID: 1391652491}
   m_Layer: 0
   m_Name: Planet Visual
   m_TagString: Untagged
@@ -3288,7 +3324,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 766597647}
@@ -3352,6 +3388,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1391652491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391652488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e10a168ba58739458d8374c0446024a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TAG_PlanetVisual
 --- !u!1 &1411347290
 GameObject:
   m_ObjectHideFlags: 0
@@ -4123,7 +4171,7 @@ MonoBehaviour:
   m_WalkAcceleration: 6
   m_Deceleration: 5
   m_MoveInput: {x: 0, y: 0}
-  m_IsGrounded: 0
+  m_IsGrounded: 1
 --- !u!61 &1868214038
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4536,8 +4584,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 619394802}
   - {fileID: 711469419}
-  - {fileID: 766597647}
   - {fileID: 1120870548}
+  - {fileID: 766597647}
   - {fileID: 321288029}
   - {fileID: 265849538}
   - {fileID: 1623053380}
