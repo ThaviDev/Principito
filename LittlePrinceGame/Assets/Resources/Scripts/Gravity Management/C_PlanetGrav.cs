@@ -41,7 +41,7 @@ public class C_PlanetGrav : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, m_GravityRadius);
+        //Gizmos.color = Color.yellow;
+        //Gizmos.DrawWireSphere(transform.position, m_GravityRadius);
     }
 }
