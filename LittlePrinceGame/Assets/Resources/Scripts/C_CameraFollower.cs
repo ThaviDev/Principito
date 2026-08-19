@@ -7,6 +7,8 @@ public class C_CameraFollower : MonoBehaviour
     [SerializeField] Transform m_target;
     [SerializeField] Rigidbody2D m_rb;
     [SerializeField] float m_yOffset;
+    [SerializeField] float m_CameraSize = 5f;
+    public float CameraSize { get { return m_CameraSize; } set { m_CameraSize = value; } }
 
     [Header("Zonas de Seguimiento")]
     [SerializeField] float m_softZoneX;
@@ -22,6 +24,7 @@ public class C_CameraFollower : MonoBehaviour
 
     [Header("Rotación")]
     [SerializeField] float m_rotationSpeed = 5f; // Velocidad de rotación hacia el objetivo
+    public float RotationSpeed { get { return m_rotationSpeed; } set { m_rotationSpeed = value; } }
 
     float m_xSpeed;
     float m_ySpeed;
@@ -43,6 +46,8 @@ public class C_CameraFollower : MonoBehaviour
 
         Quaternion targetRotation = m_target.rotation;
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, m_rotationSpeed * Time.deltaTime);
+
+        m_cam.orthographicSize = Mathf.Lerp(m_cam.orthographicSize, m_CameraSize, Time.deltaTime * 2f);
     }
 
     Vector2 CalculateOvershoot()

@@ -2,14 +2,22 @@ using UnityEngine;
 
 public class C_PlanetGrav : MonoBehaviour
 {
+    [Header("Planet Settings")]
     [SerializeField] private float m_PlanetSize = 1f;
     [SerializeField] private float m_GravityStrength = 9.81f;
     public float GravityStrength { get { return m_GravityStrength; } }
     [SerializeField] private float m_GravityRadius = 5f;
     public float GravityRadius { get { return m_GravityRadius; } }
+    [SerializeField] private Color m_ColorPlanet;
+    [SerializeField] private Color m_ColorAtmosphere;
+
+    [Header("References")]
     [SerializeField] private TAG_Atmosphere m_Atmosphere;
     [SerializeField] private TAG_PlanetVisual m_PlanetVisual;
     [SerializeField] private CircleCollider2D m_PlanetSurfaceCollider;
+
+
+
     // On Validate Sirve para que cuando se cambien los valores en el inspector,
     // se actualicen las escalas y radios de los componentes relacionados,
     // como la visualización del planeta, el collider de la superficie y la atmósfera.
@@ -23,6 +31,8 @@ public class C_PlanetGrav : MonoBehaviour
         m_PlanetVisual.transform.localScale = Vector3.one * m_PlanetSize;
         m_PlanetSurfaceCollider.radius = m_PlanetSize / 2f;
         m_Atmosphere.transform.localScale = Vector3.one * m_GravityRadius * 2f;
+        m_PlanetVisual.GetComponent<SpriteRenderer>().color = m_ColorPlanet;
+        m_Atmosphere.GetComponent<SpriteRenderer>().color = m_ColorAtmosphere;
     }
     void Start()
     {

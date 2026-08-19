@@ -36,7 +36,7 @@ public class C_PlayerInput : MonoBehaviour
     Vector2 _move;
     Vector2 _aim;
     bool _run;
-    bool _dash;
+    bool _jump;
     bool _flashlight;
     bool _interact;
     bool _useItem;
@@ -102,7 +102,7 @@ public class C_PlayerInput : MonoBehaviour
     public Vector2 MovementVector { get { return _move; } }
     public Vector2 AimingVector { get { return _aim; } }
     public bool RuningBool { get { return _run; } }
-    public bool DashBool { get { return _dash; } }
+    public bool JumpBool { get { return _jump; } }
     public bool FlashLightBool { get { return _flashlight; } }
     public bool InteractAndPickUpItemBool { get { return _interact; } }
     public bool UseItemBool { get { return _useItem; } }
@@ -114,6 +114,7 @@ public class C_PlayerInput : MonoBehaviour
     private void Update()
     {
         _move = OnMoveChange();
+        _jump = OnJumpPressed();
         /*
         _aim = OnAimChange();
         _run = OnRunPressed();
@@ -134,6 +135,10 @@ public class C_PlayerInput : MonoBehaviour
         // .IsPressed(), .WasPressedThisFrame, .WasReleasedThisFrame
         // .ReadValue<Float>, .ReadValue<Vector2>
     }
+    static bool OnJumpPressed()
+    {
+        return _input.actions.FindAction("Jump").WasReleasedThisFrame();
+    }
     /*
     static Vector2 OnAimChange()
     {
@@ -142,10 +147,6 @@ public class C_PlayerInput : MonoBehaviour
     static bool OnRunPressed()
     {
         return _input.actions.FindAction("Speed Control").WasReleasedThisFrame();
-    }
-    static bool OnDashPressed()
-    {
-        return _input.actions.FindAction("Dash Jump").WasReleasedThisFrame();
     }
     static bool OnFlashLightPressed()
     {
