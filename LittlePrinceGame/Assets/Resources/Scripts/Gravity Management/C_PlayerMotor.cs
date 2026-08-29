@@ -6,6 +6,7 @@ public class C_PlayerMotor : MonoBehaviour
     [SerializeField] private C_GravObject m_GravObject;
     [SerializeField] private Rigidbody2D m_rb;
     [SerializeField] private C_CameraFollower m_CameraManager;
+
     [Header("Grounded Settings")]
     [SerializeField] private float m_MoveSpeed = 5f;
     [SerializeField] private float m_WalkAcceleration = 10f;
@@ -14,14 +15,24 @@ public class C_PlayerMotor : MonoBehaviour
     [Header("Ungrounded Settings")]
     [SerializeField] private float m_AirMaxMoveSpeed = 10f;
     [SerializeField] private float m_AirAcceleration = 5f;
+    private bool m_isPreparingLaunch = false;
+    [SerializeField] private float m_LauchForce = 20f;
 
     [Header("Testing")]
     [SerializeField] private Vector2 m_MoveInput;
     [SerializeField] private bool m_JumpInput;
     private bool m_jumpBuffer;
     [SerializeField] private float m_JumpForce = 8f;
-
     [SerializeField] private bool m_IsGrounded;
+
+    [Header("Inputs")]
+    // los límites de izquierda y derecha de la pantalla para determinar sí el jugador se movería a la izquierda o la derecha
+    [SerializeField] private float m_screenTouchMoveLimit;
+    private bool m_inptIsTouching;
+    private GameObject m_inptTouchDownObj;
+    private GameObject m_inptTouchUpdateObj;
+    private GameObject m_inptTouchUpObj;
+
     void Start()
     {
         m_GravObject = GetComponent<C_GravObject>();
@@ -33,16 +44,28 @@ public class C_PlayerMotor : MonoBehaviour
     {
         m_MoveInput = C_PlayerInput.Instance.MovementVector;
         m_JumpInput = C_PlayerInput.Instance.JumpBool;
-        print(m_JumpInput);
+
+        m_inptIsTouching = C_TouchInputManager.Instance.IsTouchPressing;
+        m_inptTouchDownObj = C_TouchInputManager.Instance.TouchDownObj;
+        m_inptTouchUpdateObj = C_TouchInputManager.Instance.TouchFollower;
+        m_inptTouchUpObj = C_TouchInputManager.Instance.TouchUpObj;
+
+        //print(m_JumpInput);
         if (m_JumpInput)
         {
             m_jumpBuffer = true;
+        }
+        if (m_IsGrounded)
+        {
+            Grounded();
+        } else
+        {
+            NotGrounded();
         }
     }
 
     void FixedUpdate()
     {
-        
         if (m_rb == null)
         {
             Debug.LogWarning("PlayerMotor: Rigidbody2D no asignado.");
@@ -51,11 +74,11 @@ public class C_PlayerMotor : MonoBehaviour
 
         if (m_IsGrounded)
         {
-            Grounded();
+            GroundedBody();
         }
         else
         {
-            NotGrounded();
+            NotGroundedBody();
         }
         if (m_jumpBuffer)
         {
@@ -79,16 +102,22 @@ public class C_PlayerMotor : MonoBehaviour
     }
     private void Grounded()
     {
-        RotateTowardsPlanet();
-        GroundedMovement();
         m_CameraManager.CameraSize = 2f;
         m_CameraManager.RotationSpeed = 5f;
     }
     private void NotGrounded()
     {
-        NotGroundedMovement();
         m_CameraManager.CameraSize = 5f;
         m_CameraManager.RotationSpeed = 0f;
+    }
+    private void GroundedBody()
+    {
+        RotateTowardsPlanet();
+        GroundedMovement();
+    }
+    private void NotGroundedBody()
+    {
+        FlyMovement();
     }
     private void RotateTowardsPlanet()
     {
@@ -123,8 +152,25 @@ public class C_PlayerMotor : MonoBehaviour
             m_rb.AddForce(m_rb.linearVelocity * -m_Deceleration, ForceMode2D.Force);
         }
     }
-    private void NotGroundedMovement()
+    private void FlyMovement()
     {
-        // Setting temporal para teclado, luego se cambiara a un flick de movil gesture.
+        Debug.Log("Puedo volar");
+        if (m_inptIsTouching)
+        {
+            m_rb.linearVelocity = new Vector2(0, 0);
+            m_isPreparingLaunch = true;
+            Debug.Log("Preparando un lanzamiento");
+        }
+        if (!m_inptIsTouching && m_isPreparingLaunch)
+        {
+            m_rb.AddForce(
+                ((m_inptTouchUpObj.transform.position -
+                m_inptTouchDownObj.transform.position).normalized
+                * -1)
+                * m_LauchForce
+                ,ForceMode2D.Force);
+            m_isPreparingLaunch = false;
+        }
+
     }
 }
