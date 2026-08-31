@@ -24,6 +24,10 @@ public class C_PlayerMotor : MonoBehaviour
     private bool m_jumpBuffer;
     [SerializeField] private float m_JumpForce = 8f;
     [SerializeField] private bool m_IsGrounded;
+    [SerializeField] private float m_GroundedRayDistance;
+    [SerializeField] private LayerMask m_GroundLayer;
+    [SerializeField] private GameObject m_NearestPlanet;
+    //[SerializeField] private Vector2 m_DirectionToNearestPlanet;
 
     [Header("Inputs")]
     // los límites de izquierda y derecha de la pantalla para determinar sí el jugador se movería a la izquierda o la derecha
@@ -62,6 +66,7 @@ public class C_PlayerMotor : MonoBehaviour
         {
             NotGrounded();
         }
+        GetNearestPlanetOrMoreRecent();
     }
 
     void FixedUpdate()
@@ -95,15 +100,30 @@ public class C_PlayerMotor : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
+        /*
         if (collision.gameObject.CompareTag("Ground"))
         {
             m_IsGrounded = false;
-        }
+        }*/
+    }
+
+    private bool CheckGrounded()
+    {
+        Vector2 origin = transform.position;
+        //Vector2 dir = -transform.up;
+        Vector2 dir = (new Vector2
+            (m_NearestPlanet.transform.position.x, 
+            m_NearestPlanet.transform.position.y) 
+            - origin).normalized;
+        RaycastHit2D hit = Physics2D.Raycast(origin, dir, m_GroundedRayDistance,m_GroundLayer);
+        Debug.DrawRay(origin, dir * m_GroundedRayDistance, Color.red);
+        return hit.collider != null;
     }
     private void Grounded()
     {
         m_CameraManager.CameraSize = 2f;
         m_CameraManager.RotationSpeed = 5f;
+        m_IsGrounded = CheckGrounded();
     }
     private void NotGrounded()
     {
@@ -119,15 +139,34 @@ public class C_PlayerMotor : MonoBehaviour
     {
         FlyMovement();
     }
+    private void GetNearestPlanetOrMoreRecent()
+    {
+        for (int i = 0; i < m_GravObject.PlanetsList.Count; i++)
+        {
+            if (Vector2.Distance(transform.position, m_GravObject.PlanetsList[i].transform.position) <= m_GravObject.PlanetsList[i].GravityRadius)
+            {
+                m_NearestPlanet = m_GravObject.PlanetsList[i].gameObject;
+                break;
+            }
+        }
+    }
     private void RotateTowardsPlanet()
     {
+        Vector2 NearestPlanetPosition = m_NearestPlanet.transform.position;
+        Vector2 Origin = new Vector2(transform.position.x,transform.position.y);
+        Vector2 DirectionToPlanet = (NearestPlanetPosition - Origin).normalized;
+        float angle = Mathf.Atan2(DirectionToPlanet.y, DirectionToPlanet.x) * Mathf.Rad2Deg + 90f;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        //m_IsGrounded = true;
+        /*
         // The closest planet is the one that changes the rotation of the player, so it will always hit the planet on his feet
         for (int i = 0; i < m_GravObject.PlanetsList.Count; i++)
         {
             if (Vector2.Distance(transform.position, m_GravObject.PlanetsList[i].transform.position) <= m_GravObject.PlanetsList[i].GravityRadius)
             {
-                Vector2 directionToPlanet = (m_GravObject.PlanetsList[i].transform.position - transform.position).normalized;
-                float angle = Mathf.Atan2(directionToPlanet.y, directionToPlanet.x) * Mathf.Rad2Deg + 90f;
+                m_NearestPlanet = m_GravObject.PlanetsList[i].gameObject;
+                Vector2 DirectionToPlanet = (m_GravObject.PlanetsList[i].transform.position - transform.position).normalized;
+                float angle = Mathf.Atan2(DirectionToPlanet.y, DirectionToPlanet.x) * Mathf.Rad2Deg + 90f;
                 transform.rotation = Quaternion.Euler(0f, 0f, angle);
                 //m_IsGrounded = true;
                 break;
@@ -138,6 +177,7 @@ public class C_PlayerMotor : MonoBehaviour
             }
         }
         //if (m_rb != null || m_MoveInput != Vector2.zero && m_IsGrounded)
+        */
     }
     private void GroundedMovement()
     {

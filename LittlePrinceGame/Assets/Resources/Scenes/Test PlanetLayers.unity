@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 40863424}
   - component: {fileID: 40863426}
   - component: {fileID: 40863425}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Planet Visual (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 567099670}
   - component: {fileID: 567099672}
   - component: {fileID: 567099671}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Planet Visual (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +430,7 @@ GameObject:
   - component: {fileID: 1693427372}
   - component: {fileID: 1693427374}
   - component: {fileID: 1693427373}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Planet Visual (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +534,7 @@ GameObject:
   - component: {fileID: 2107531974}
   - component: {fileID: 2107531976}
   - component: {fileID: 2107531975}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Planet Visual (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -697,7 +697,7 @@ GameObject:
   - component: {fileID: 5760044660019929725}
   - component: {fileID: 1865463615118534892}
   - component: {fileID: 9189630335886742250}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Planet Prototype
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -905,7 +905,7 @@ GameObject:
   - component: {fileID: 1384579517018467316}
   - component: {fileID: 6812088602143954230}
   - component: {fileID: 58042384926269613}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Atmosphere Radious
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -923,7 +923,7 @@ GameObject:
   - component: {fileID: 6875889023380216592}
   - component: {fileID: 7029418162368255275}
   - component: {fileID: 611801564350444090}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Planet Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

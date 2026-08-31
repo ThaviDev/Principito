@@ -1598,10 +1598,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -2379.0,
-            "y": -274.9999694824219,
+            "x": -2380.0,
+            "y": -275.0,
             "width": 208.0,
-            "height": 335.99993896484377
+            "height": 336.0
         }
     },
     "m_Slots": [
@@ -3584,7 +3584,7 @@
     "m_AlembicMotionVectors": false,
     "m_SupportsLODCrossFade": false,
     "m_CustomEditorGUI": "",
-    "m_SupportVFX": false
+    "m_SupportVFX": true
 }
 
 {
@@ -4493,7 +4493,7 @@
     "m_Title": "Step Times Every 0.3 Seconds (Balance out with time multiplication)",
     "m_Position": {
         "x": -3660.999755859375,
-        "y": -610.9998779296875
+        "y": -611.0
     }
 }
 
