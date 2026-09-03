@@ -27,6 +27,7 @@ public class C_PlayerMotor : MonoBehaviour
     [SerializeField] private float m_GroundedRayDistance;
     [SerializeField] private LayerMask m_GroundLayer;
     [SerializeField] private GameObject m_NearestPlanet;
+    [SerializeField] private float m_RotationSpeed = 5f;
     //[SerializeField] private Vector2 m_DirectionToNearestPlanet;
 
     [Header("Inputs")]
@@ -194,12 +195,12 @@ public class C_PlayerMotor : MonoBehaviour
     }
     private void FlyMovement()
     {
-        Debug.Log("Puedo volar");
+        //Debug.Log("Puedo volar");
         if (m_inptIsTouching)
         {
             m_rb.linearVelocity = new Vector2(0, 0);
             m_isPreparingLaunch = true;
-            Debug.Log("Preparando un lanzamiento");
+            //Debug.Log("Preparando un lanzamiento");
         }
         if (!m_inptIsTouching && m_isPreparingLaunch)
         {
@@ -211,6 +212,10 @@ public class C_PlayerMotor : MonoBehaviour
                 ,ForceMode2D.Force);
             m_isPreparingLaunch = false;
         }
-
+        m_rb.freezeRotation = true;
+        Vector2 direction = (m_rb.linearVelocity).normalized;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float angleObjective = angle - 90f;
+        m_rb.rotation = Mathf.LerpAngle(m_rb.rotation, angleObjective, Time.fixedDeltaTime * m_RotationSpeed);
     }
 }

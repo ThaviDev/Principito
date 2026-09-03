@@ -4492,7 +4492,7 @@
     "m_ObjectId": "87dc8467200f49ecb7cf38ce7d8a5e13",
     "m_Title": "Step Times Every 0.3 Seconds (Balance out with time multiplication)",
     "m_Position": {
-        "x": -3660.999755859375,
+        "x": -3661.0,
         "y": -611.0
     }
 }
@@ -6896,7 +6896,7 @@
     "m_Title": "Noise Drawn Distortion",
     "m_Position": {
         "x": -2662.0,
-        "y": -516.9999389648438
+        "y": -517.0
     }
 }
 
