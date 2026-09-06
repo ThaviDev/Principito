@@ -1,7 +1,15 @@
+using System;
 using UnityEngine;
 
 public class C_GameManager : MonoBehaviour
 {
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    private static void InstantiateBeforeRunTime()
+    {
+        GameObject gameManager = Resources.Load<GameObject>("GM");
+        Instantiate(gameManager);
+    }
+
     private static C_GameManager _instance;
     public static C_GameManager Instance
     {
@@ -22,6 +30,7 @@ public class C_GameManager : MonoBehaviour
             return _instance;
         }
     }
+    public static Action A_OnGameStart;
     private void Awake()
     {
         if (_instance == null)
@@ -33,5 +42,18 @@ public class C_GameManager : MonoBehaviour
         {
             Destroy(gameObject); // Destruir instancias adicionales si ya existe una instancia.
         }
+    }
+    private void Start()
+    {
+        A_OnGameStart += StartGameplay;
+    }
+    private void StartGameplay()
+    {
+        C_SceneManager.A_LoadScene?.Invoke(SceneName.TestGameplay);
+        C_MusicManager.A_ChangeState?.Invoke(MusicState.Exploration, 0f);
+    }
+    private void OnDestroy()
+    {
+        A_OnGameStart -= StartGameplay;
     }
 }

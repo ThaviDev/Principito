@@ -25,7 +25,7 @@ public class C_MusicManager : MonoBehaviour
         }
     }
     // float es duracion del estado, si es 0 es infinito
-    public static Action<MusicState, float> ChangeState;
+    public static Action<MusicState, float> A_ChangeState;
     [SerializeField] private D_MusicsToPlay m_MusicData;
     private void Awake()
     {
@@ -41,7 +41,7 @@ public class C_MusicManager : MonoBehaviour
     }
     private void Start()
     {
-        ChangeState += MusicChangeStateEvent;
+        A_ChangeState += MusicChangeStateEvent;
     }
     private void MusicChangeStateEvent(MusicState ms, float duration)
     {
@@ -54,7 +54,7 @@ public class C_MusicManager : MonoBehaviour
     }
     private void OnDestroy()
     {
-        ChangeState -= MusicChangeStateEvent;
+        A_ChangeState -= MusicChangeStateEvent;
     }
 
     public void ChangeStateByNameEvent(string musicName)

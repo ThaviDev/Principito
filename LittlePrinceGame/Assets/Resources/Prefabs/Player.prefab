@@ -100,7 +100,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4358263727186028275}
+  - component: {fileID: 9095539765933867113}
   - component: {fileID: 325037057325877247}
+  - component: {fileID: 2539814432191914502}
   m_Layer: 0
   m_Name: Player Visual
   m_TagString: Untagged
@@ -124,6 +126,20 @@ Transform:
   - {fileID: 4775506915830019380}
   m_Father: {fileID: 6357249432290000873}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9095539765933867113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3754882553739383277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 838028d9610fb6f469cf1c541db6d661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::C_PlayerAnimation
+  m_Animator: {fileID: 0}
+  m_Sprite: {fileID: 0}
 --- !u!212 &325037057325877247
 SpriteRenderer:
   serializedVersion: 2
@@ -183,6 +199,28 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!95 &2539814432191914502
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3754882553739383277}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4e2d78e55f1998c45adcc39a861bd293, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4515352026074778062
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,21 +274,23 @@ MonoBehaviour:
   m_GravObject: {fileID: 0}
   m_rb: {fileID: 0}
   m_CameraManager: {fileID: 0}
+  m_PlayerAnim: {fileID: 9095539765933867113}
   m_MoveSpeed: 2.5
   m_WalkAcceleration: 6
   m_Deceleration: 5
   m_AirMaxMoveSpeed: 3
   m_AirAcceleration: 5
   m_LauchForce: 400
-  m_MoveInput: {x: 0, y: 0}
-  m_JumpInput: 0
-  m_JumpForce: 5
+  m_JumpForce: 7
   m_IsGrounded: 0
   m_GroundedRayDistance: 0.5
   m_GroundLayer:
     serializedVersion: 2
     m_Bits: 64
   m_NearestPlanet: {fileID: 0}
+  m_RotationSpeed: 5
+  m_MoveInput: {x: 0, y: 0}
+  m_JumpInput: 0
   m_screenTouchMoveLimit: 0
 --- !u!114 &7340458031810145621
 MonoBehaviour:

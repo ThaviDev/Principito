@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 430182873530116797}
   - component: {fileID: 1480620723295125946}
+  - component: {fileID: 4533663801808032616}
   m_Layer: 0
   m_Name: LeanFingerDown
   m_TagString: Untagged
@@ -61,9 +62,9 @@ MonoBehaviour:
   onWorld:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: set_position
+      - m_Target: {fileID: 1908007159052156566}
+        m_TargetAssemblyTypeName: C_TouchInputManager, Assembly-CSharp
+        m_MethodName: TriggerTouchDown
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -73,9 +74,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1908007159052156566}
-        m_TargetAssemblyTypeName: C_TouchInputManager, Assembly-CSharp
-        m_MethodName: TriggerTouchDown
+      - m_Target: {fileID: 4533663801808032616}
+        m_TargetAssemblyTypeName: C_ObjectSpawner, Assembly-CSharp
+        m_MethodName: SpawnObject
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -100,6 +101,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4533663801808032616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4494580624815324841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d017fe334d94ec14c86418d7da51049e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::C_ObjectSpawner
+  m_ObjectToSpawn: {fileID: 8497755779762287482, guid: 24099674635972b459a5ac52a07fcd10, type: 3}
 --- !u!1 &4945507482364038961
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,18 +187,6 @@ MonoBehaviour:
   onWorldFrom:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Transform, UnityEngine
-        m_MethodName: set_position
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1908007159052156566}
         m_TargetAssemblyTypeName: C_TouchInputManager, Assembly-CSharp
         m_MethodName: TriggerTouchUpdate
@@ -267,18 +269,6 @@ MonoBehaviour:
   onWorld:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: set_position
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1908007159052156566}
         m_TargetAssemblyTypeName: C_TouchInputManager, Assembly-CSharp
         m_MethodName: TriggerTouchUp
@@ -343,9 +333,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04ec63880ec523b45a3ff2e171928bae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_TouchInputManager
-  TouchDownObj: {fileID: 3630991676099889130, guid: bc14a27af65d5154382ac0bdd11e3147, type: 3}
-  TouchFollower: {fileID: 745174789227568963, guid: 10a669fec47740340b38dca5a17d69ee, type: 3}
-  TouchUpObj: {fileID: 2150166312063867284, guid: 31d87346e6e339f48a835fc2af490925, type: 3}
+  m_touchDownObj: {fileID: 4494580624815324841}
+  m_touchFollower: {fileID: 4945507482364038961}
+  m_touchUpObj: {fileID: 5337490583791125033}
 --- !u!1 &8780087512563484008
 GameObject:
   m_ObjectHideFlags: 0
