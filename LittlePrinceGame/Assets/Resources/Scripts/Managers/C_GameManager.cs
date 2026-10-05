@@ -50,7 +50,7 @@ public class C_GameManager : MonoBehaviour
     private void StartGameplay()
     {
         C_SceneManager.A_LoadScene?.Invoke(SceneName.TestGameplay);
-        C_MusicManager.A_ChangeState?.Invoke(MusicState.Exploration, 0f);
+        C_SoundManager.A_ChangeMusicState?.Invoke(MusicState.Exploration, 0f);
     }
     private void OnDestroy()
     {

@@ -290,11 +290,6 @@ public class C_PlayerMotor : MonoBehaviour
             }
         }*/
     }
-
-    private void DragObjectsWithMouse()
-    {
-
-    }
     private void FlyMovement()
     {
         Vector2 direction = (m_rb.linearVelocity).normalized;
@@ -308,6 +303,11 @@ public class C_PlayerMotor : MonoBehaviour
         //Debug.Log("Puedo volar");
         if (m_inptIsTouching)
         {
+            // Elevar al jugador del suelo
+            if (m_touchedObject == this.gameObject && m_IsGrounded)
+            {
+                touchedRb.AddRelativeForce(Vector2.up * 300);
+            }
             touchedRb.linearVelocity = new Vector2(0, 0);
             m_isPreparingLaunch = true;
             //Debug.Log("Preparando un lanzamiento");

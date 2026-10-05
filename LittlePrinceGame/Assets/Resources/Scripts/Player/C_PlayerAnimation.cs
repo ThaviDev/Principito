@@ -16,15 +16,21 @@ public class C_PlayerAnimation : MonoBehaviour
     public static Action<PlayerAnimationStates> SetAnimationState;
     private void Awake()
     {
-        m_Animator = GetComponent<Animator>();
-        m_Sprite = GetComponent<SpriteRenderer>();
+
     }
     private void Start()
     {
+        m_Animator = GetComponent<Animator>();
+        m_Sprite = GetComponent<SpriteRenderer>();
         SetAnimationState += CheckStateEvent;
     }
     private void CheckStateEvent(PlayerAnimationStates state)
     {
+        if (m_Animator == null)
+        {
+            Debug.LogError("Animator is not assigned in C_PlayerAnimation.");
+            return;
+        }
         if (m_Animator.GetInteger("State") != (int)state)
         {
             ChangeAnimationState(state);
