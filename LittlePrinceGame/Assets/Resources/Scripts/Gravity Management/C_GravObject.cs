@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class C_GravObject : MonoBehaviour
 {
-    [SerializeField] private List<C_PlanetGrav> m_Planets = new List<C_PlanetGrav>();
+    [SerializeField] protected List<C_PlanetGrav> m_Planets = new List<C_PlanetGrav>();
     public List<C_PlanetGrav> PlanetsList { get { return m_Planets; } }
 
-    [SerializeField] private Rigidbody2D m_rb;
-    void Start()
+    [SerializeField] protected Rigidbody2D m_rb;
+    protected virtual void Start()
     {
         m_rb = GetComponent<Rigidbody2D>();
     }
 
-    public void AddPlanets(IEnumerable<C_PlanetGrav> planets)
+    public virtual void AddPlanets(IEnumerable<C_PlanetGrav> planets)
     {
         if (planets == null) return;
         foreach (var p in planets)
@@ -22,7 +22,7 @@ public class C_GravObject : MonoBehaviour
         }
     }
 
-    public void RemovePlanets(IEnumerable<C_PlanetGrav> planets)
+    public virtual void RemovePlanets(IEnumerable<C_PlanetGrav> planets)
     {
         if (planets == null) return;
         foreach (var p in planets)
@@ -32,7 +32,7 @@ public class C_GravObject : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (m_Planets == null || m_Planets.Count == 0) return;
 
@@ -46,8 +46,13 @@ public class C_GravObject : MonoBehaviour
 
             if (dist <= planet.GravityRadius)
             {
-                m_rb.AddForce(v.normalized * planet.GravityStrength * (planet.GravityRadius / dist));
+                //m_rb.AddForce(v.normalized * planet.GravityStrength * (planet.GravityRadius / dist));
+                GravityForce(v, planet, dist);
             }
         }
+    }
+    protected virtual void GravityForce(Vector2 v, C_PlanetGrav planet, float dist)
+    {
+        m_rb.AddForce(v.normalized * planet.GravityStrength * (planet.GravityRadius / dist));
     }
 }

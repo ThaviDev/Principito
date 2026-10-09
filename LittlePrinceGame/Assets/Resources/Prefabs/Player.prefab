@@ -231,7 +231,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6357249432290000873}
   - component: {fileID: 4678788534299090379}
-  - component: {fileID: 7340458031810145621}
+  - component: {fileID: 7785007820481089828}
+  - component: {fileID: 9141092468611575964}
   - component: {fileID: 8161170201799408105}
   - component: {fileID: 2041028841893832816}
   - component: {fileID: 2269501902102848323}
@@ -271,15 +272,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f234dcfa8e4936248b89d54ca2fbe0f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_PlayerMotor
-  m_GravObject: {fileID: 0}
-  m_rb: {fileID: 0}
+  m_GravObject: {fileID: 7785007820481089828}
+  m_rb: {fileID: 8161170201799408105}
   m_CameraManager: {fileID: 0}
   m_PlayerAnim: {fileID: 9095539765933867113}
   m_GameplayUI: {fileID: 0}
   m_MoveSpeed: 2.5
   m_WalkAcceleration: 6
   m_Deceleration: 5
-  m_CameraSizeGrounded: 2.5
+  m_CameraSizeGrounded: 3
   m_CameraRotationSpeedGrounded: 5
   m_AirMaxMoveSpeed: 3
   m_AirAcceleration: 5
@@ -298,7 +299,7 @@ MonoBehaviour:
   m_JumpInput: 0
   m_screenTouchMoveLimit: 0
   m_touchedObject: {fileID: 0}
---- !u!114 &7340458031810145621
+--- !u!114 &7785007820481089828
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -307,11 +308,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 4515352026074778062}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b5fe8e15bc77bf45a005aca1aff5cb5, type: 3}
+  m_Script: {fileID: 11500000, guid: d5431e0fb9eb8c1419c1a47e4a79999d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::C_GravObject
+  m_EditorClassIdentifier: Assembly-CSharp::C_GravObjectPlayer
   m_Planets: []
   m_rb: {fileID: 0}
+--- !u!114 &9141092468611575964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515352026074778062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf8380075608e6d4882b21592fcd7632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::C_PlayerCollectables
+  Stars: {fileID: 11400000, guid: e3961041661a6334db13e5a2a714b93c, type: 2}
 --- !u!50 &8161170201799408105
 Rigidbody2D:
   serializedVersion: 5
@@ -432,7 +446,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4346585805550134537}
   - component: {fileID: 6419732386142528089}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Minimap Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,8 +463,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.2, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6357249432290000873}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -480,7 +494,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: e9c2c8a74b1609a479e314732066e26c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -501,7 +515,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 20
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: a9ef2dd6d939e7e47855ef55f9ff52f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

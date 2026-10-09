@@ -16,7 +16,7 @@ public class C_PlanetGrav : MonoBehaviour
     [SerializeField] private TAG_PlanetVisual m_PlanetVisual;
     [SerializeField] private CircleCollider2D m_PlanetSurfaceCollider;
 
-
+    public float PlanetSize { get { return m_PlanetSize; } }
 
     // On Validate Sirve para que cuando se cambien los valores en el inspector,
     // se actualicen las escalas y radios de los componentes relacionados,

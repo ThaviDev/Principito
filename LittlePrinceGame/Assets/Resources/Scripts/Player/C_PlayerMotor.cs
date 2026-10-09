@@ -54,7 +54,6 @@ public class C_PlayerMotor : MonoBehaviour
         m_PlayerAnim = GetComponentInChildren<C_PlayerAnimation>();
         m_rb.freezeRotation = true;
     }
-
     void Update()
     {
         //m_MoveInput = C_PlayerInput.Instance.MovementVector;
@@ -76,11 +75,10 @@ public class C_PlayerMotor : MonoBehaviour
         } else
         {
             NotGrounded();
-            C_PlayerAnimation.SetAnimationState?.Invoke(PlayerAnimationStates.fly);
+            //C_PlayerAnimation.SetAnimationState?.Invoke(PlayerAnimationStates.fly);
         }
         GetNearestPlanetOrMoreRecent();
     }
-
     void FixedUpdate()
     {
         if (m_rb == null)
@@ -266,11 +264,11 @@ public class C_PlayerMotor : MonoBehaviour
 
         if (m_rb.linearVelocity.magnitude < 0.1f)
         {
-            C_PlayerAnimation.SetAnimationState?.Invoke(PlayerAnimationStates.idle);
+            m_PlayerAnim.SetAnimationState?.Invoke(PlayerAnimationStates.idle);
         }
         else
         {
-            C_PlayerAnimation.SetAnimationState?.Invoke(PlayerAnimationStates.walk);
+            m_PlayerAnim.SetAnimationState?.Invoke(PlayerAnimationStates.walk);
         }
         if (m_inptIsTouching)
         {
@@ -308,12 +306,17 @@ public class C_PlayerMotor : MonoBehaviour
             {
                 touchedRb.AddRelativeForce(Vector2.up * 300);
             }
+            if (m_touchedObject == this.gameObject)
+            {
+                m_PlayerAnim.SetAnimationState?.Invoke(PlayerAnimationStates.spinning);
+            }
             touchedRb.linearVelocity = new Vector2(0, 0);
             m_isPreparingLaunch = true;
             //Debug.Log("Preparando un lanzamiento");
         }
         if (!m_inptIsTouching && m_isPreparingLaunch)
         {
+            m_PlayerAnim.SetAnimationState?.Invoke(PlayerAnimationStates.fly);
             touchedRb.AddForce(
                 ((m_inptTouchUpObj.transform.position -
                 m_inptTouchDownObj.transform.position).normalized

@@ -4,16 +4,16 @@ public enum PlayerAnimationStates
 {
     idle,
     walk,
+    spinning,
     fly,
     landing,
     jump,
-    launch,
 }
 public class C_PlayerAnimation : MonoBehaviour
 {
     [SerializeField] private Animator m_Animator;
     [SerializeField] private SpriteRenderer m_Sprite;
-    public static Action<PlayerAnimationStates> SetAnimationState;
+    public Action<PlayerAnimationStates> SetAnimationState;
     private void Awake()
     {
 
