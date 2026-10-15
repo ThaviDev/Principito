@@ -46,6 +46,9 @@ public class C_PlayerMotor : MonoBehaviour
     private bool m_IsLaunching;
     [SerializeField]private GameObject m_touchedObject;
 
+    public bool IsGrounded => m_IsGrounded;
+    public void StopPlayerMovement() { m_MoveInput = Vector2.zero; }
+
     void Start()
     {
         m_GravObject = GetComponent<C_GravObject>();
@@ -123,6 +126,7 @@ public class C_PlayerMotor : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
+            if (collision.gameObject.GetComponent<C_PlanetGrav>().IsWalkable == true)
             m_IsGrounded = true;
         }
     }

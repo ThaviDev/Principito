@@ -1,0 +1,15 @@
+Dialogo Id	Dialogo Siguiente	Personaje	Dialogo Espaniol	Dialogo Ingles
+1	2	No Char	Oh, ¡eres tu otra vez!	
+2	3	Principito	/color:#acd8b9/ Buen día	
+3	4	No Char	¿Volviste para aclamarme de nuevo?	
+4	5	Principito	/color:#acd8b9/ No recuerdo que fuera muy divertido	
+5	6	No Char	Por favor admirame de cualquier manera	
+6	7	Principito	/color:#acd8b9/ No puedo, no nos hemos conocido	
+7	8	Principito	/color:#acd8b9/ Así cómo yo conocí al zorro	
+8	9	No Char	No necesitas conocerme para poder admirarme	
+9		Principito	/color:#acd8b9/ ...	
+10	11	Zorro	Hm, me pregunto donde estará	
+11	12	Principito	/color:#acd8b9/ Oh, Hola Zorro	
+12	13	Zorro	Hola mi amigo	
+13	14	Zorro	Estoy buscando algo muy especial	
+14	15	Zorro	¿Me ayudarías a encontrarlo?	

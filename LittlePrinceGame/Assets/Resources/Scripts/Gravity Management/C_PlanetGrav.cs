@@ -17,6 +17,7 @@ public class C_PlanetGrav : MonoBehaviour
     [SerializeField] private CircleCollider2D m_PlanetSurfaceCollider;
 
     public float PlanetSize { get { return m_PlanetSize; } }
+    public bool IsWalkable { get { return m_GravityStrength > 0f; } }
 
     // On Validate Sirve para que cuando se cambien los valores en el inspector,
     // se actualicen las escalas y radios de los componentes relacionados,
