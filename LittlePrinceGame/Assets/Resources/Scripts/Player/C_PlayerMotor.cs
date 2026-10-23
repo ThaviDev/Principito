@@ -3,11 +3,13 @@ using UnityEngine;
 public class C_PlayerMotor : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private C_GravObject m_GravObject;
+    //[SerializeField] private C_GravObject m_GravObject;
     [SerializeField] private Rigidbody2D m_rb;
     [SerializeField] private C_CameraFollower m_CameraManager;
     [SerializeField] private C_PlayerAnimation m_PlayerAnim;
     [SerializeField] private C_GameplayUI m_GameplayUI;
+    [SerializeField] private C_PlanetFollower m_PlanetFollower;
+    [SerializeField] private C_RotateTowardsPlanet m_RotateTowardsPlanet;
 
     [Header("Grounded Settings")]
     [SerializeField] private float m_MoveSpeed = 5f;
@@ -30,7 +32,8 @@ public class C_PlayerMotor : MonoBehaviour
     [SerializeField] private bool m_IsGrounded;
     [SerializeField] private float m_GroundedRayDistance;
     [SerializeField] private LayerMask m_GroundLayer;
-    [SerializeField] private GameObject m_NearestPlanet;
+    [SerializeField] private C_PlanetGrav m_NearestPlanet;
+    //[SerializeField] private GameObject m_NearestPlanet;
     [SerializeField] private float m_RotationSpeed = 5f;
     //[SerializeField] private Vector2 m_DirectionToNearestPlanet;
 
@@ -51,7 +54,6 @@ public class C_PlayerMotor : MonoBehaviour
 
     void Start()
     {
-        m_GravObject = GetComponent<C_GravObject>();
         m_rb = GetComponent<Rigidbody2D>();
         m_CameraManager = FindAnyObjectByType<C_CameraFollower>();
         m_PlayerAnim = GetComponentInChildren<C_PlayerAnimation>();
@@ -80,7 +82,8 @@ public class C_PlayerMotor : MonoBehaviour
             NotGrounded();
             //C_PlayerAnimation.SetAnimationState?.Invoke(PlayerAnimationStates.fly);
         }
-        GetNearestPlanetOrMoreRecent();
+        //GetNearestPlanetOrMoreRecent();
+        m_NearestPlanet = m_PlanetFollower.NearestPlanet;
     }
     void FixedUpdate()
     {
@@ -197,13 +200,16 @@ public class C_PlayerMotor : MonoBehaviour
     }
     private void GroundedBody()
     {
-        RotateTowardsPlanet();
+        //RotateTowardsPlanet();
+        m_RotateTowardsPlanet.CanRotate = true;
         GroundedMovement();
     }
     private void NotGroundedBody()
     {
+        m_RotateTowardsPlanet.CanRotate = false;
         FlyMovement();
     }
+    /*
     private void GetNearestPlanetOrMoreRecent()
     {
         for (int i = 0; i < m_GravObject.PlanetsList.Count; i++)
@@ -215,6 +221,7 @@ public class C_PlayerMotor : MonoBehaviour
             }
         }
     }
+    */
     private void RotateTowardsPlanet()
     {
         Vector2 NearestPlanetPosition = m_NearestPlanet.transform.position;

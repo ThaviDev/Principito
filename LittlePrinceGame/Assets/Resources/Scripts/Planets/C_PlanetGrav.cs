@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class C_PlanetGrav : MonoBehaviour
@@ -18,6 +19,26 @@ public class C_PlanetGrav : MonoBehaviour
 
     public float PlanetSize { get { return m_PlanetSize; } }
     public bool IsWalkable { get { return m_GravityStrength > 0f; } }
+
+    //  Registro global de planetas (para PlanetUtility)
+    private static readonly List<C_PlanetGrav> s_AllPlanets = new List<C_PlanetGrav>();
+    public static IReadOnlyList<C_PlanetGrav> AllPlanets => s_AllPlanets;
+
+    // Se ejecuta al entrar al Play Mode incluso si "Domain Reload" está desactivado.
+    // Evita que queden planetas "fantasma" en la lista estática entre sesiones del editor.
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetStatics() => s_AllPlanets.Clear();
+
+    private void OnEnable()
+    {
+        if (!s_AllPlanets.Contains(this))
+            s_AllPlanets.Add(this);
+    }
+
+    private void OnDisable()
+    {
+        s_AllPlanets.Remove(this);
+    }
 
     // On Validate Sirve para que cuando se cambien los valores en el inspector,
     // se actualicen las escalas y radios de los componentes relacionados,
