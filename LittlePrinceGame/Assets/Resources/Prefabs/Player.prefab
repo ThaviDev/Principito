@@ -231,6 +231,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6357249432290000873}
   - component: {fileID: 4678788534299090379}
+  - component: {fileID: 2575760644773753662}
+  - component: {fileID: 6988251994019195861}
   - component: {fileID: 7785007820481089828}
   - component: {fileID: 9141092468611575964}
   - component: {fileID: 8161170201799408105}
@@ -272,20 +274,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f234dcfa8e4936248b89d54ca2fbe0f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_PlayerMotor
-  m_GravObject: {fileID: 7785007820481089828}
   m_rb: {fileID: 8161170201799408105}
   m_CameraManager: {fileID: 0}
   m_PlayerAnim: {fileID: 9095539765933867113}
   m_GameplayUI: {fileID: 0}
+  m_PlanetFollower: {fileID: 2575760644773753662}
+  m_RotateTowardsPlanet: {fileID: 6988251994019195861}
   m_MoveSpeed: 2.5
   m_WalkAcceleration: 6
   m_Deceleration: 5
-  m_CameraSizeGrounded: 3
+  m_CameraSizeGrounded: 4
   m_CameraRotationSpeedGrounded: 5
   m_AirMaxMoveSpeed: 3
   m_AirAcceleration: 5
   m_LauchForce: 400
-  m_CameraSizeUngrounded: 5
+  m_CameraSizeUngrounded: 4
   m_CameraRotationSpeedUngrounded: 0
   m_JumpForce: 7
   m_IsGrounded: 0
@@ -299,6 +302,35 @@ MonoBehaviour:
   m_JumpInput: 0
   m_screenTouchMoveLimit: 0
   m_touchedObject: {fileID: 0}
+--- !u!114 &2575760644773753662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515352026074778062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c070a436a0b354a91a8cf2d3542d87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::C_PlanetFollower
+  m_UpdateInterval: 0.1
+  m_RequireInGravityRadius: 1
+--- !u!114 &6988251994019195861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515352026074778062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10af5d4fa00b34b4f9c09aa18300210c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::C_RotateTowardsPlanet
+  m_NearestPlanet: {fileID: 0}
+  m_CanRotate: 1
+  m_Update: 1
 --- !u!114 &7785007820481089828
 MonoBehaviour:
   m_ObjectHideFlags: 0

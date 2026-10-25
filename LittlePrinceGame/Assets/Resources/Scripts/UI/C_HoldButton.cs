@@ -1,16 +1,11 @@
 using UnityEngine;
+using System;
+using UnityEngine.EventSystems;
 
-public class C_HoldButton : MonoBehaviour
+public class C_HoldButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public event Action OnPressed;
+    public event Action OnReleased;
+    public void OnPointerDown(PointerEventData eventData) => OnPressed?.Invoke();
+    public void OnPointerUp(PointerEventData eventData) => OnReleased?.Invoke(); 
 }
