@@ -15,7 +15,7 @@ public class C_PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        if (m_Anim == null) m_Anim = GetComponent<C_PlayerAnimation>();
+        if (m_Anim == null) m_Anim = GetComponentInChildren<C_PlayerAnimation>();
         if (m_rb == null) m_rb = GetComponent<Rigidbody2D>();
         if (m_RotToPlanet == null) m_RotToPlanet = GetComponent<C_RotateTowardsPlanet>();
     }

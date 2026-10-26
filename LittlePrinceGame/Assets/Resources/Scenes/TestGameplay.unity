@@ -17441,11 +17441,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3345927727280838110, guid: d74690b16013f7f4f895f093e80e27a0, type: 3}
   m_PrefabInstance: {fileID: 1105064582}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1105687461 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4515352026074778062, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
-  m_PrefabInstance: {fileID: 4453343902534646584}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1111775324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32339,23 +32334,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3345927727280838110, guid: d74690b16013f7f4f895f093e80e27a0, type: 3}
   m_PrefabInstance: {fileID: 1893551627}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1906030466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1105687461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f62dc9e815ce204091d4588ec7eb997, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::C_PlayerGroundDetector
-  m_RayDistance: 0.5
-  m_GroundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  m_PlanetFollower: {fileID: 0}
 --- !u!1 &1909587150
 GameObject:
   m_ObjectHideFlags: 0
@@ -36801,22 +36779,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3029310344337592411, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420034}
     - target: {fileID: 4515352026074778062, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4678788534299090379, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 4723768523733919636, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
+      propertyPath: m_MoveSpeed
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4678788534299090379, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
-      propertyPath: m_GameplayUI
-      value: 
-      objectReference: {fileID: 1217990740}
-    - target: {fileID: 4678788534299090379, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
-      propertyPath: m_CameraManager
-      value: 
-      objectReference: {fileID: 519420034}
+    - target: {fileID: 4723768523733919636, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
+      propertyPath: m_AirRotationSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6357249432290000873, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.15
@@ -36857,13 +36835,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8685300683737223734, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
+      propertyPath: m_UI
+      value: 
+      objectReference: {fileID: 1217990740}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4515352026074778062, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 1906030466}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
 --- !u!1001 &5020991121655192021
 PrefabInstance:

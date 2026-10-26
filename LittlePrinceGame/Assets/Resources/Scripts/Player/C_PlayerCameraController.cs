@@ -15,8 +15,8 @@ public class C_PlayerCameraController : MonoBehaviour
 
     private void Awake()
     {
-        if (m_Camera != null) m_Camera = FindAnyObjectByType<C_CameraFollower>();
-        if (m_Grounded != null) m_Grounded = GetComponent<C_PlayerGroundDetector>();
+        if (m_Camera == null) m_Camera = FindAnyObjectByType<C_CameraFollower>();
+        if (m_Grounded == null) m_Grounded = GetComponent<C_PlayerGroundDetector>();
     }
 
     private void OnEnable() => m_Grounded.A_OnGroundedChanged += Apply;
@@ -25,6 +25,7 @@ public class C_PlayerCameraController : MonoBehaviour
     private void Apply(bool grounded)
     {
         m_Camera.CameraSize = grounded ? m_SizeGrounded : m_SizeAir;
+        Debug.Log("Camera Rotation is " + grounded);
         m_Camera.RotationSpeed = grounded ? m_RotSpeedGround : m_RotSpeedAir;
     }
 }

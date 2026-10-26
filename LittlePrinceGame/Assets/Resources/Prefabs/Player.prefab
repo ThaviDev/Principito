@@ -231,6 +231,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6357249432290000873}
   - component: {fileID: 4678788534299090379}
+  - component: {fileID: 4723768523733919636}
+  - component: {fileID: 685892463627721771}
+  - component: {fileID: 8685300683737223734}
+  - component: {fileID: 3029310344337592411}
+  - component: {fileID: 8614476759249663197}
   - component: {fileID: 2575760644773753662}
   - component: {fileID: 6988251994019195861}
   - component: {fileID: 7785007820481089828}
@@ -274,34 +279,94 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f234dcfa8e4936248b89d54ca2fbe0f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_PlayerMotor
-  m_rb: {fileID: 8161170201799408105}
-  m_CameraManager: {fileID: 0}
-  m_PlayerAnim: {fileID: 9095539765933867113}
-  m_GameplayUI: {fileID: 0}
-  m_PlanetFollower: {fileID: 2575760644773753662}
-  m_RotateTowardsPlanet: {fileID: 6988251994019195861}
-  m_MoveSpeed: 2.5
-  m_WalkAcceleration: 6
-  m_Deceleration: 5
-  m_CameraSizeGrounded: 4
-  m_CameraRotationSpeedGrounded: 5
-  m_AirMaxMoveSpeed: 3
-  m_AirAcceleration: 5
-  m_LauchForce: 400
-  m_CameraSizeUngrounded: 4
-  m_CameraRotationSpeedUngrounded: 0
-  m_JumpForce: 7
-  m_IsGrounded: 0
-  m_GroundedRayDistance: 0.5
+  m_Input: {fileID: 0}
+  m_Grounded: {fileID: 0}
+  m_Movement: {fileID: 0}
+  m_Launch: {fileID: 0}
+  m_Camera: {fileID: 0}
+--- !u!114 &4723768523733919636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515352026074778062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14809036d106eff4290c341acd3634af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::C_PlayerMovement
+  m_rb: {fileID: 0}
+  m_Anim: {fileID: 9095539765933867113}
+  m_RotToPlanet: {fileID: 0}
+  m_MoveSpeed: 2
+  m_Acceleration: 10
+  m_Deceleration: 3
+  m_AirRotationSpeed: 10
+--- !u!114 &685892463627721771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515352026074778062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f62dc9e815ce204091d4588ec7eb997, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::C_PlayerGroundDetector
+  m_RayDistance: 0.5
   m_GroundLayer:
     serializedVersion: 2
     m_Bits: 64
-  m_NearestPlanet: {fileID: 0}
-  m_RotationSpeed: 5
-  m_MoveInput: {x: 0, y: 0}
-  m_JumpInput: 0
-  m_screenTouchMoveLimit: 0
-  m_touchedObject: {fileID: 0}
+  m_PlanetFollower: {fileID: 0}
+--- !u!114 &8685300683737223734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515352026074778062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efab54da93721c448831932190a64100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::C_PlayerInputAdapter
+  m_UI: {fileID: 0}
+--- !u!114 &3029310344337592411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515352026074778062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b2e241017aa8949867382300d67fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::C_PlayerCameraController
+  m_Grounded: {fileID: 685892463627721771}
+  m_Camera: {fileID: 0}
+  m_SizeGrounded: 2
+  m_RotSpeedGround: 5
+  m_SizeAir: 5
+  m_RotSpeedAir: 0
+--- !u!114 &8614476759249663197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515352026074778062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b7e3e32280f3464889dcacabfd25981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::C_PlayerLaunchController
+  m_LaunchForce: 400
+  m_SelfLiftForce: 300
+  m_Target: {fileID: 0}
+  m_Anim: {fileID: 9095539765933867113}
 --- !u!114 &2575760644773753662
 MonoBehaviour:
   m_ObjectHideFlags: 0

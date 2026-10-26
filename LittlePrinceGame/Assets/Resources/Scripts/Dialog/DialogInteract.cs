@@ -21,9 +21,9 @@ public class DialogInteract : MonoBehaviour
     }
     public void Interactuar(C_PlayerMotor player)
     {
-        if (!player.IsGrounded) return;
+        //if (!player.IsGrounded) return;
         // ESTO DISPARA EL DIALOGO
         DialogLoader.Instance.PlayDialogue(m_DialogoId);
-        player.StopPlayerMovement();
+        //player.StopPlayerMovement();
     }
 }

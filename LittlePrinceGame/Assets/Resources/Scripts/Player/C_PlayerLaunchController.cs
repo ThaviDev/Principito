@@ -7,15 +7,16 @@ public class C_PlayerLaunchController : MonoBehaviour
     [SerializeField] private float m_LaunchForce = 20f;
     [SerializeField] private float m_SelfLiftForce = 300f;
 
-    private GameObject m_Target;
-    private C_PlayerAnimation m_Anim;
+    [SerializeField] GameObject m_Target;
+    [SerializeField] private C_PlayerAnimation m_Anim;
     public bool IsPreparing { get; private set; }
     public event Action A_OnLaunchStart;
     public event Action A_OnLaunchRelease;
 
     private void Awake()
     {
-        m_Anim = GetComponentInChildren<C_PlayerAnimation>();
+        if (m_Anim == null)
+            m_Anim = GetComponentInChildren<C_PlayerAnimation>();
     }
 
     public void TryBegin(Vector2 touchWorldPos, bool isGrounded)
@@ -48,17 +49,20 @@ public class C_PlayerLaunchController : MonoBehaviour
     }
     public void TryRelease(Vector2 fromWorld, Vector2 toWorld)
     {
-        if (!IsPreparing && m_Target != null) return;
+        Debug.Log("Accedo a TryRelease");
+        Debug.Log("Target es: " + m_Target + " ¿Se esta preparando para lanzarse? " + IsPreparing);
+        if (!IsPreparing && m_Target == null) return;
+        Debug.Log("Continuo?");
         var launchRb = m_Target.GetComponent<Rigidbody2D>();
-
+        Debug.Log("Tengo RigidBody2D?");
         Vector2 dir = fromWorld - toWorld;
         if (dir.sqrMagnitude < 0.0001f) dir = Vector2.up;
         dir.Normalize();
-
+        launchRb.linearVelocity = Vector2.zero;
         launchRb.AddForce(dir * m_LaunchForce, ForceMode2D.Force);
 
-        if (m_Target == this.gameObject)
-            m_Anim.SetAnimationState?.Invoke(PlayerAnimationStates.fly);
+        //if (m_Target == this.gameObject)
+            //m_Anim.SetAnimationState?.Invoke(PlayerAnimationStates.fly);
 
         Reset();
         A_OnLaunchRelease?.Invoke();
@@ -69,14 +73,16 @@ public class C_PlayerLaunchController : MonoBehaviour
         m_Target = null;
         IsPreparing = false;
     }
-
     private GameObject FindTouchTarget(Vector2 worldPos)
     {
         var hits = Physics2D.RaycastAll(worldPos, Vector2.zero);
         foreach(var hit in hits)
         {
             if (hit.collider.GetComponent<Rigidbody2D>() != null)
+            {
+                Debug.Log("Objeto " + hit + " tiene RigidBody2D");
                 return hit.collider.gameObject;
+            }
         }
         return null;
     }
