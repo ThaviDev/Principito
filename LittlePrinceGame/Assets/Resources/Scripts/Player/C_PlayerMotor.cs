@@ -39,6 +39,7 @@ public class C_PlayerMotor : MonoBehaviour
         // Mientras preparas un lanzamiento, congelas velocidad y no procesas movimiento
         if (m_Launch.IsPreparing)
         {
+            m_rb.linearVelocity = Vector2.zero;
             m_Launch.Preparing();
             return;
         }

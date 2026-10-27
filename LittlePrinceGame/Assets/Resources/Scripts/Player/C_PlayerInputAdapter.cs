@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class C_PlayerInputAdapter : MonoBehaviour
 {
+    public enum GroundControlMode { Buttons, Swipe }
+    private GroundControlMode m_GroundMode = GroundControlMode.Buttons;
     [SerializeField] private C_GameplayUI m_UI;
 
     public Vector2 WalkInput {  get; private set; }
@@ -14,6 +16,8 @@ public class C_PlayerInputAdapter : MonoBehaviour
 
     private bool m_WasTouching;
     private Vector2 m_TouchWorldDown;
+
+    public GroundControlMode MyGroundControlMode => m_GroundMode;
 
     private void Awake()
     {
@@ -53,7 +57,6 @@ public class C_PlayerInputAdapter : MonoBehaviour
         m_inptTouchUpObj = C_TouchInputManager.Instance.TouchUpObj;
 
         IsTouching = m_inptIsTouching;
-        Debug.Log(IsTouching);
         if (IsTouching)
         {
             if (m_inptTouchDownObj != null)

@@ -25,7 +25,7 @@ public class C_PlayerCameraController : MonoBehaviour
     private void Apply(bool grounded)
     {
         m_Camera.CameraSize = grounded ? m_SizeGrounded : m_SizeAir;
-        Debug.Log("Camera Rotation is " + grounded);
+        //Debug.Log("Camera Rotation is " + grounded);
         m_Camera.RotationSpeed = grounded ? m_RotSpeedGround : m_RotSpeedAir;
     }
 }
