@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: ffe769491e2e04f45a3114e9ebe54bd7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8157805114463478214
+    second: Modified_Logo_DanzaAptitude_0
+  - first:
+      213: -2219621096813210229
+    second: Modified_Logo_DanzaAptitude_1
+  - first:
+      213: -7166177096491815239
+    second: Modified_Logo_DanzaAptitude_2
+  - first:
+      213: -1256860292079328145
+    second: Modified_Logo_DanzaAptitude_3
+  - first:
+      213: 6926116860179597227
+    second: Modified_Logo_DanzaAptitude_4
+  - first:
+      213: 1793446639219669409
+    second: Modified_Logo_DanzaAptitude_5
+  - first:
+      213: 3851613806203877682
+    second: Modified_Logo_DanzaAptitude_6
+  - first:
+      213: -2860086867361254824
+    second: Modified_Logo_DanzaAptitude_7
+  - first:
+      213: -664069190378986805
+    second: Modified_Logo_DanzaAptitude_8
+  - first:
+      213: 8720594322339252437
+    second: Modified_Logo_DanzaAptitude_9
+  - first:
+      213: 846577338843263247
+    second: Modified_Logo_DanzaAptitude_10
+  - first:
+      213: -3560627609612857145
+    second: Modified_Logo_DanzaAptitude_11
+  - first:
+      213: -4095082364514027514
+    second: Modified_Logo_DanzaAptitude_12
+  - first:
+      213: 568979942836747726
+    second: Modified_Logo_DanzaAptitude_13
+  - first:
+      213: -4217548903466767664
+    second: Modified_Logo_DanzaAptitude_14
+  - first:
+      213: -3573545220259523409
+    second: Modified_Logo_DanzaAptitude_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Modified_Logo_DanzaAptitude_0
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 379
+        width: 36
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3e1a856877a9ce80800000000000000
+      internalID: -8157805114463478214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modified_Logo_DanzaAptitude_1
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 321
+        width: 39
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b855c7c5f525231e0800000000000000
+      internalID: -2219621096813210229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modified_Logo_DanzaAptitude_2
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 320
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bea01616ef9c8c90800000000000000
+      internalID: -7166177096491815239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modified_Logo_DanzaAptitude_3
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 321
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f646156393cbe8ee0800000000000000
+      internalID: -1256860292079328145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modified_Logo_DanzaAptitude_4
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 320
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba749d396928e1060800000000000000
+      internalID: 6926116860179597227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modified_Logo_DanzaAptitude_5
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 321
+        width: 42
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a97e4e573a93e810800000000000000
+      internalID: 1793446639219669409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modified_Logo_DanzaAptitude_6
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 312
+        width: 34
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 239b5ca995ea37530800000000000000
+      internalID: 3851613806203877682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modified_Logo_DanzaAptitude_7
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 321
+        width: 22
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8523c24c52eee48d0800000000000000
+      internalID: -2860086867361254824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modified_Logo_DanzaAptitude_8
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 353
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc2ed29f690c8c6f0800000000000000
+      internalID: -664069190378986805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modified_Logo_DanzaAptitude_9
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 321
+        width: 23
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d8c15d1556c50970800000000000000
+      internalID: 8720594322339252437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modified_Logo_DanzaAptitude_10
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 320
+        width: 34
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f01f5a4ba95afbb00800000000000000
+      internalID: 846577338843263247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modified_Logo_DanzaAptitude_11
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 320
+        width: 30
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c0d397dd0c169ec0800000000000000
+      internalID: -3560627609612857145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modified_Logo_DanzaAptitude_12
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 321
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 608bc2149485b27c0800000000000000
+      internalID: -4095082364514027514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modified_Logo_DanzaAptitude_13
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 321
+        width: 10
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecd3b115e3c65e700800000000000000
+      internalID: 568979942836747726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modified_Logo_DanzaAptitude_14
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 321
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0da660a2e914875c0800000000000000
+      internalID: -4217548903466767664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modified_Logo_DanzaAptitude_15
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 1
+        width: 288
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa4d2ad3e87386ec0800000000000000
+      internalID: -3573545220259523409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Modified_Logo_DanzaAptitude_0: -8157805114463478214
+      Modified_Logo_DanzaAptitude_1: -2219621096813210229
+      Modified_Logo_DanzaAptitude_10: 846577338843263247
+      Modified_Logo_DanzaAptitude_11: -3560627609612857145
+      Modified_Logo_DanzaAptitude_12: -4095082364514027514
+      Modified_Logo_DanzaAptitude_13: 568979942836747726
+      Modified_Logo_DanzaAptitude_14: -4217548903466767664
+      Modified_Logo_DanzaAptitude_15: -3573545220259523409
+      Modified_Logo_DanzaAptitude_2: -7166177096491815239
+      Modified_Logo_DanzaAptitude_3: -1256860292079328145
+      Modified_Logo_DanzaAptitude_4: 6926116860179597227
+      Modified_Logo_DanzaAptitude_5: 1793446639219669409
+      Modified_Logo_DanzaAptitude_6: 3851613806203877682
+      Modified_Logo_DanzaAptitude_7: -2860086867361254824
+      Modified_Logo_DanzaAptitude_8: -664069190378986805
+      Modified_Logo_DanzaAptitude_9: 8720594322339252437
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

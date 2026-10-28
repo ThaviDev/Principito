@@ -36668,11 +36668,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6357249432290000873, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.15
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6357249432290000873, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.11
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6357249432290000873, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -36708,11 +36708,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8614476759249663197, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
       propertyPath: m_MaxLaunchPower
-      value: 500
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 8614476759249663197, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
       propertyPath: m_BaseLaunchForce
-      value: 2000
+      value: 1600
       objectReference: {fileID: 0}
     - target: {fileID: 8614476759249663197, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
       propertyPath: m_MaxHoldDuration
@@ -36723,6 +36723,14 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8614476759249663197, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
+      propertyPath: m_MinDistForceMult
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8614476759249663197, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
+      propertyPath: m_MinTimeForceMult
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8614476759249663197, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
       propertyPath: m_MinForceMultiplier
       value: 0.1
       objectReference: {fileID: 0}
@@ -36730,6 +36738,10 @@ PrefabInstance:
       propertyPath: m_UI
       value: 
       objectReference: {fileID: 1217990740}
+    - target: {fileID: 8685300683737223734, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
+      propertyPath: m_WalkAngle
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

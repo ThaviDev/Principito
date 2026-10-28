@@ -20,6 +20,8 @@ public class C_PlayerLaunchController : MonoBehaviour
     [Header("References")]
     [SerializeField] private Rigidbody2D m_rb;
     [SerializeField] private C_PlayerAnimation m_Anim;
+    [SerializeField] private C_PlayerInputAdapter m_InputAdapter;
+    [SerializeField] private C_PlayerGroundDetector m_GroundDetector;
 
     [Header("Testing")]
     [SerializeField] GameObject m_Target;
@@ -33,6 +35,10 @@ public class C_PlayerLaunchController : MonoBehaviour
             m_Anim = GetComponentInChildren<C_PlayerAnimation>();
         if (m_rb == null)
             m_rb = GetComponent<Rigidbody2D>();
+        if (m_InputAdapter == null)
+            m_InputAdapter = GetComponent<C_PlayerInputAdapter>();
+        if (m_GroundDetector == null)
+            m_GroundDetector = GetComponent<C_PlayerGroundDetector>();
     }
 
     public void TryBegin(Vector2 touchWorldPos, bool isGrounded)
@@ -49,19 +55,20 @@ public class C_PlayerLaunchController : MonoBehaviour
 
         if (target == this.gameObject)
         {
-            /* Checar si esta en el suelo, si si entonces hay que hacer un detonador que cheque durante el lanzamiento
-             * si el angulo es mejor para otra cosa, o sera mejor detectar ese angulo de antemano, quiza sea necesario
-             * checar los mismos "gestures", pero en vez de con el punto inicio y final con el punto inicio y de update
-             * para simular un tipo de Joystick
-             * */
-            m_Anim.SetAnimationState?.Invoke(PlayerAnimationStates.spinning);
-            if (isGrounded) rb.AddRelativeForce(Vector2.up * m_SelfLiftForce);
+            m_Target = gameObject;
+            target = gameObject;
+            //rb.AddRelativeForce(Vector2.up * m_SelfLiftForce); // Impulso de salto: Ya no porque velocidad siempre esta en 0 cuando es seleccionado
+            if (!isGrounded)
+            {
+                m_Anim.SetAnimationState?.Invoke(PlayerAnimationStates.spinning);
+            }
         }
 
         rb.linearVelocity = Vector2.zero;
         IsPreparing = true;
         A_OnLaunchStart?.Invoke();
     }
+
     public void Preparing()
     {
         if (!IsPreparing || m_Target != null) return;
@@ -72,6 +79,8 @@ public class C_PlayerLaunchController : MonoBehaviour
     public void TryRelease(Vector2 fromWorld, Vector2 toWorld)
     {
         if (!IsPreparing && m_Target == null) { Reset(); return; }
+        Vector2 dragVector = (fromWorld - toWorld);
+        if (dragVector.sqrMagnitude < 0.2f) { Reset(); return; }
 
         var launchRb = m_Target.GetComponent<Rigidbody2D>();
         if (launchRb == null) { Reset(); return; }
@@ -84,7 +93,10 @@ public class C_PlayerLaunchController : MonoBehaviour
         if (dir.sqrMagnitude < 0.0001f) dir = Vector2.up;
         dir.Normalize();
 
-        launchRb.AddForce(dir * force, ForceMode2D.Force);
+        if (m_GroundDetector.IsGrounded)
+            launchRb.AddForce(dir * 500, ForceMode2D.Force);
+        else 
+            launchRb.AddForce(dir * force, ForceMode2D.Force);
         Debug.Log("Final Force: " + force);
 
         //if (m_Target == this.gameObject)
@@ -101,6 +113,9 @@ public class C_PlayerLaunchController : MonoBehaviour
     }
     private GameObject FindTouchTarget(Vector2 worldPos)
     {
+        if (m_InputAdapter.MyGroundControlMode == C_PlayerInputAdapter.GroundControlMode.Swipe)
+            return this.gameObject;
+
         var hits = Physics2D.RaycastAll(worldPos, Vector2.zero);
         foreach(var hit in hits)
         {
