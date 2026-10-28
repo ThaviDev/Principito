@@ -333,6 +333,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_PlayerInputAdapter
   m_UI: {fileID: 0}
+  m_GroundDetector: {fileID: 0}
+  m_WalkAngle: 40
 --- !u!114 &3029310344337592411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,8 +349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::C_PlayerCameraController
   m_Grounded: {fileID: 685892463627721771}
   m_Camera: {fileID: 0}
-  m_SizeGrounded: 2
-  m_RotSpeedGround: 5
+  m_SizeGrounded: 4
+  m_RotSpeedGround: 7.5
   m_SizeAir: 5
   m_RotSpeedAir: 0
 --- !u!114 &8614476759249663197
@@ -363,10 +365,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7e3e32280f3464889dcacabfd25981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_PlayerLaunchController
-  m_LaunchForce: 400
+  m_BaseLaunchForce: 1600
   m_SelfLiftForce: 300
-  m_Target: {fileID: 0}
+  m_MinDistForceMult: 0.1
+  m_MinTimeForceMult: 0.4
+  m_MaxSwipeDistance: 20
+  m_MaxHoldDuration: 0.5
+  m_MaxLaunchPower: 400
+  m_rb: {fileID: 0}
   m_Anim: {fileID: 9095539765933867113}
+  m_InputAdapter: {fileID: 0}
+  m_GroundDetector: {fileID: 0}
+  m_Target: {fileID: 0}
 --- !u!114 &2575760644773753662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,7 +624,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: a9ef2dd6d939e7e47855ef55f9ff52f6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf78af496cb89d548a3fe0c7d32d0b3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
