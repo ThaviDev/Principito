@@ -6,6 +6,11 @@ public class C_PlayerLaunchController : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float m_BaseLaunchForce = 200f;
     [SerializeField] private float m_SelfLiftForce = 300f;
+    [SerializeField] bool m_TimeTypeForceIsPositive = true;
+    [Tooltip("Impacto de la distancia en la fuerza del lanzamiento.")]
+    [SerializeField, Range(0f, 1f)] private float m_DistanceImpact = 1f;
+    [Tooltip("Impacto del tiempo en la fuerza del lanzamiento.")]
+    [SerializeField, Range(0f, 1f)] private float m_TimeImpact = 1f;
     [Tooltip("Multiplicador mínimo cuando el gesto de distancia es muy débil o muy largo.")]
     [SerializeField, Range(0f, 1f)] private float m_MinDistForceMult = 0.3f;
     [Tooltip("Multiplicador mínimo cuando el gesto de tiempo es muy débil o muy largo.")]
@@ -71,14 +76,14 @@ public class C_PlayerLaunchController : MonoBehaviour
 
     public void Preparing()
     {
-        if (!IsPreparing || m_Target != null) return;
+        if (!IsPreparing || m_Target == null) return;
         var launchRb = m_Target.GetComponent<Rigidbody2D>();
         if (launchRb != null) launchRb.linearVelocity = Vector2.zero;
         print("Objeto seleccionado esta en velocidad 0");
     }
     public void TryRelease(Vector2 fromWorld, Vector2 toWorld)
     {
-        if (!IsPreparing && m_Target == null) { Reset(); return; }
+        if (!IsPreparing || m_Target == null) { Reset(); return; }
         Vector2 dragVector = (fromWorld - toWorld);
         if (dragVector.sqrMagnitude < 0.2f) { Reset(); return; }
 
@@ -132,15 +137,24 @@ public class C_PlayerLaunchController : MonoBehaviour
     {
         // -- Distancia: 0 -> min, max -> 1
         float distNorm = Mathf.Clamp01(gesture.Distance / m_MaxSwipeDistance);
-        float distFactor = Mathf.Lerp(m_MinDistForceMult, 1f, distNorm);
+        float rawDistFactor = Mathf.Lerp(m_MinDistForceMult, 1f, distNorm);
 
-        // -- Duración: 0 -> 1, max -> min (mas tiempo = menos fuerza)
+        // -- Duración: 0 -> 1, max -> min (mas tiempo = menos fuerza) (o alrevez segun el bool)
         float timeNorm = Mathf.Clamp01(gesture.Duration / m_MaxHoldDuration);
-        float timeFactor = Mathf.Lerp(1f, m_MinTimeForceMult, timeNorm);
+        float rawTimeFactor = 
+            !m_TimeTypeForceIsPositive ? 
+            Mathf.Lerp(1f, m_MinTimeForceMult, timeNorm) : 
+            Mathf.Lerp(m_MinTimeForceMult, 1f, timeNorm);
 
-        var finalScore = m_BaseLaunchForce * distFactor * timeFactor;
+        float finalDistFactor = Mathf.Lerp(1f, rawDistFactor, m_DistanceImpact);
+        float finalTimeFactor = Mathf.Lerp(1f, rawTimeFactor, m_TimeImpact);
+
+        var finalScore = m_BaseLaunchForce * finalDistFactor * finalTimeFactor;
         if (finalScore >= m_MaxLaunchPower)
             finalScore = m_MaxLaunchPower;
+
+        if (C_LaunchDebugger.Instance != null)
+            C_LaunchDebugger.Instance.UpdateDebugInfo(finalScore, finalDistFactor, finalTimeFactor, gesture.Distance, gesture.Duration);
         // -- Combinación multiplicativa: peor de los dos domina
         return finalScore;
     }

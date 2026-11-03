@@ -4,8 +4,8 @@ using UnityEngine;
 using Doublsb.Dialog;
 
 public enum Idioma { 
-    Español, 
-    Inglés 
+    Espaniol, 
+    Ingles 
 }
 
 public class DialogLoader : MonoBehaviour
@@ -40,7 +40,7 @@ public class DialogLoader : MonoBehaviour
     [SerializeField] private string archivoDialogos = "DialogosLP";
 
     [Header("Idioma")]
-    [SerializeField] private Idioma idioma = Idioma.Español;
+    [SerializeField] private Idioma idioma = Idioma.Espaniol;
 
     // Se dispara cuando alguien pide un diálogo. El int es el Id inicial en el TSV.
     public event Action<int> OnDialogueRequested;
@@ -131,7 +131,7 @@ public class DialogLoader : MonoBehaviour
         while (idActual != -1 && dialogos.ContainsKey(idActual) && seguridad < 1000)
         {
             var linea = dialogos[idActual];
-            string texto = idioma == Idioma.Español ? linea.Espaniol : linea.Ingles;
+            string texto = idioma == Idioma.Espaniol ? linea.Espaniol : linea.Ingles;
             string personaje = linea.Personaje == "Default" ? "" : linea.Personaje;
 
             lista.Add(new DialogData(texto, personaje));

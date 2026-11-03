@@ -6,6 +6,7 @@ public class C_PlanetGrav : MonoBehaviour
     [Header("Planet Settings")]
     [SerializeField] private float m_PlanetSize = 1f;
     [SerializeField] private float m_GravityStrength = 9.81f;
+    private float m_OutlineThickness = 0.05f;
     public float GravityStrength { get { return m_GravityStrength; } }
     [SerializeField] private float m_GravityRadius = 5f;
     public float GravityRadius { get { return m_GravityRadius; } }
@@ -15,6 +16,7 @@ public class C_PlanetGrav : MonoBehaviour
     [Header("References")]
     [SerializeField] private TAG_Atmosphere m_Atmosphere;
     [SerializeField] private TAG_PlanetVisual m_PlanetVisual;
+    [SerializeField] private TAG_PlanetOutline m_PlanetOutline;
     [SerializeField] private CircleCollider2D m_PlanetSurfaceCollider;
 
     public float PlanetSize { get { return m_PlanetSize; } }
@@ -47,14 +49,18 @@ public class C_PlanetGrav : MonoBehaviour
     // facilitando el diseño y ajuste del planeta sin necesidad de ejecutar el juego.
     private void OnValidate()
     {
-        m_Atmosphere = GetComponentInChildren<TAG_Atmosphere>();
-        m_PlanetVisual = GetComponentInChildren<TAG_PlanetVisual>();
-        m_PlanetSurfaceCollider = GetComponent<CircleCollider2D>();
-        m_PlanetVisual.transform.localScale = Vector3.one * m_PlanetSize;
-        m_PlanetSurfaceCollider.radius = m_PlanetSize / 2f;
-        m_Atmosphere.transform.localScale = Vector3.one * m_GravityRadius * 2f;
+        if (m_Atmosphere != null)
+            m_Atmosphere = GetComponentInChildren<TAG_Atmosphere>();
+        if (m_PlanetVisual != null)
+            m_PlanetVisual = GetComponentInChildren<TAG_PlanetVisual>();
+        if (m_PlanetOutline != null)
+            m_PlanetOutline = GetComponentInChildren<TAG_PlanetOutline>();
+        if (m_PlanetSurfaceCollider != null)
+            m_PlanetSurfaceCollider = GetComponent<CircleCollider2D>();
+
         m_PlanetVisual.GetComponent<SpriteRenderer>().color = m_ColorPlanet;
         m_Atmosphere.GetComponent<SpriteRenderer>().color = m_ColorAtmosphere;
+        SetPlanet();
     }
     void Start()
     {
@@ -66,7 +72,17 @@ public class C_PlanetGrav : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SetPlanet();
+    }
+
+    void SetPlanet()
+    {
         m_PlanetVisual.transform.localScale = Vector3.one * m_PlanetSize;
+
+        // el scale directo del outline es: diámetro del planeta + 2 * grosor.
+        float outlineScale = m_PlanetSize + 2 * m_OutlineThickness;
+        m_PlanetOutline.transform.localScale = Vector3.one * outlineScale;
+
         m_PlanetSurfaceCollider.radius = m_PlanetSize / 2f;
         m_Atmosphere.transform.localScale = Vector3.one * m_GravityRadius * 2f;
     }
