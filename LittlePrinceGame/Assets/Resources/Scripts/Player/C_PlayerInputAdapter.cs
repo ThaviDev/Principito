@@ -138,4 +138,9 @@ public class C_PlayerInputAdapter : MonoBehaviour
             m_Direction = GroundDirection.Down;
         }
     }
+
+    public void StopWalk()
+    {
+        WalkInput = Vector2.zero;
+    }
 }

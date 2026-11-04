@@ -36,6 +36,12 @@ public class C_PlayerMotor : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (DialogLoader.Instance != null && DialogLoader.Instance.IsDialogueActive)
+        {
+            m_rb.linearVelocity = Vector2.zero;
+            m_Input.StopWalk();
+            //return; // Congela el movimiento mientras hay un dialogo activo
+        }
         // Mientras preparas un lanzamiento, congelas velocidad y no procesas movimiento
         if (m_Launch.IsPreparing)
         {

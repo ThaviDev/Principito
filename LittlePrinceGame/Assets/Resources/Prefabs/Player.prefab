@@ -138,8 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 838028d9610fb6f469cf1c541db6d661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_PlayerAnimation
-  m_Animator: {fileID: 0}
-  m_Sprite: {fileID: 0}
+  m_Animator: {fileID: 2539814432191914502}
+  m_Sprite: {fileID: 325037057325877247}
 --- !u!212 &325037057325877247
 SpriteRenderer:
   serializedVersion: 2
@@ -230,6 +230,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6357249432290000873}
+  - component: {fileID: 2537871395196818499}
   - component: {fileID: 4678788534299090379}
   - component: {fileID: 4723768523733919636}
   - component: {fileID: 685892463627721771}
@@ -267,6 +268,19 @@ Transform:
   - {fileID: 4346585805550134537}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2537871395196818499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515352026074778062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17a2291411953a48a2dc39a3875a977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::C_WrapObject
+  m_Padding: 0.1
 --- !u!114 &4678788534299090379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,13 +379,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7e3e32280f3464889dcacabfd25981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_PlayerLaunchController
-  m_BaseLaunchForce: 1600
-  m_SelfLiftForce: 300
-  m_MinDistForceMult: 0.1
+  m_BaseLaunchForce: 800
+  m_SelfLiftForce: 0
+  m_TimeTypeForceIsPositive: 1
+  m_DistanceImpact: 1
+  m_TimeImpact: 1
+  m_MinDistForceMult: 0.4
   m_MinTimeForceMult: 0.4
   m_MaxSwipeDistance: 20
-  m_MaxHoldDuration: 0.5
-  m_MaxLaunchPower: 400
+  m_MaxHoldDuration: 0.75
+  m_MaxLaunchPower: 350
   m_rb: {fileID: 0}
   m_Anim: {fileID: 9095539765933867113}
   m_InputAdapter: {fileID: 0}

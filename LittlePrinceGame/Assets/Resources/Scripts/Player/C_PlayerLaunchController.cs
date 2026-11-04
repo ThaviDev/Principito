@@ -46,6 +46,21 @@ public class C_PlayerLaunchController : MonoBehaviour
             m_GroundDetector = GetComponent<C_PlayerGroundDetector>();
     }
 
+    private void Update()
+    {
+        // Si estamos preparando el lanzamiento, calculamos la fuerza en tiempo real (solo para verla en pantalla)
+        if (IsPreparing && C_TouchInputManager.Instance.IsTouchPressing)
+        {
+            var gesture = C_TouchInputManager.Instance.LastGesture;
+            // Ojo: mientras presionas, el gesto real no ha terminado. 
+            // Podrías calcular la distancia actual así:
+            float currentDist = Vector2.Distance(gesture.StartPos, C_TouchInputManager.Instance.TouchFollower.transform.position);
+            float currentDuration = Time.unscaledTime - gesture.Duration; // Necesitarías guardar el tiempo inicial
+            if (C_LaunchDebugger.Instance != null)
+                C_LaunchDebugger.Instance.UpdateDebugInfo(0f, 0f, 0f, 0f, currentDist, currentDuration);
+        }
+    }
+
     public void TryBegin(Vector2 touchWorldPos, bool isGrounded)
     {
         if (IsPreparing) return;
@@ -149,12 +164,14 @@ public class C_PlayerLaunchController : MonoBehaviour
         float finalDistFactor = Mathf.Lerp(1f, rawDistFactor, m_DistanceImpact);
         float finalTimeFactor = Mathf.Lerp(1f, rawTimeFactor, m_TimeImpact);
 
-        var finalScore = m_BaseLaunchForce * finalDistFactor * finalTimeFactor;
+        var finalScoreLimitless = m_BaseLaunchForce * finalDistFactor * finalTimeFactor;
+
+        var finalScore = finalScoreLimitless;
         if (finalScore >= m_MaxLaunchPower)
             finalScore = m_MaxLaunchPower;
 
         if (C_LaunchDebugger.Instance != null)
-            C_LaunchDebugger.Instance.UpdateDebugInfo(finalScore, finalDistFactor, finalTimeFactor, gesture.Distance, gesture.Duration);
+            C_LaunchDebugger.Instance.UpdateDebugInfo(finalScore, finalScoreLimitless, finalDistFactor, finalTimeFactor, gesture.Distance, gesture.Duration);
         // -- Combinación multiplicativa: peor de los dos domina
         return finalScore;
     }

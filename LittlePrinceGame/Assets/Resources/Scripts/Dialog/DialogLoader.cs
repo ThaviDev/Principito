@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text; // Necesario para StringBuilder! :O
 using UnityEngine;
 using Doublsb.Dialog;
 
@@ -28,6 +29,8 @@ public class DialogLoader : MonoBehaviour
         public int Id;
         public int Siguiente;
         public string Personaje;
+        public string ColorAuto;
+        public string Emocion;
         public string Espaniol;
         public string Ingles;
     }
@@ -41,6 +44,11 @@ public class DialogLoader : MonoBehaviour
 
     [Header("Idioma")]
     [SerializeField] private Idioma idioma = Idioma.Espaniol;
+    [Header("Configuracion del texto")]
+    [Tooltip("Tamaño por defecto del texto")]
+    [SerializeField] private string m_DefaultTextSize = "60";
+
+    public bool IsDialogueActive { get; private set; }
 
     // Se dispara cuando alguien pide un diálogo. El int es el Id inicial en el TSV.
     public event Action<int> OnDialogueRequested;
@@ -74,9 +82,33 @@ public class DialogLoader : MonoBehaviour
             return;
         }
 
+        if (IsDialogueActive) return;
+
         var lista = ConstruirDialogo(idInicial);
+
         if (lista.Count > 0)
+        {
+            // 1. Obtenemos el ÚLTIMO diálogo de la lista
+            var ultimoDialogo = lista[lista.Count - 1];
+
+            // 2. Guardamos su callback original (por si acaso tenía uno)
+            var callbackOriginal = ultimoDialogo.Callback;
+
+            // 3. Sobrescribimos el callback
+            ultimoDialogo.Callback = () =>
+            {
+                // Ejecutamos el callback original si existía
+                callbackOriginal?.Invoke();
+
+                // Apagamos el estado de diálogo
+                IsDialogueActive = false;
+                // Debug.Log("Diálogo terminado, el jugador puede volver a moverse.");
+            };
+
+            // 4. Encendemos el estado y mostramos
+            IsDialogueActive = true;
             dialogManager.Show(lista);
+        }
         else
             Debug.LogWarning($"No se generó ningún diálogo para el Id {idInicial}.");
     }
@@ -97,7 +129,7 @@ public class DialogLoader : MonoBehaviour
 
             string[] celdas = linea.Split('\t');
 
-            if (celdas.Length < 4) continue;
+            if (celdas.Length < 7) continue;
 
             if (!int.TryParse(celdas[0].Trim(), out int id))
             {

@@ -7,6 +7,10 @@ public class DialogInteract : MonoBehaviour
     [SerializeField] private int m_DialogoId = 1;
     [Tooltip("Tag del jugador.")]
     [SerializeField] private string m_PlayerTag = "Player";
+
+    private bool m_PlayerInRange = false;
+    private bool m_HasTriggered = false;
+    private C_PlayerGroundDetector m_GroundDetector;
     private void Reset()
     {
         // Se asegura que el componente collider sea trigger
@@ -16,14 +20,29 @@ public class DialogInteract : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag(m_PlayerTag)) return;
-        Interactuar(other.GetComponent<C_PlayerMotor>());
 
+        m_PlayerInRange = true;
+        m_GroundDetector = other.GetComponent<C_PlayerGroundDetector>();
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!other.CompareTag(m_PlayerTag)) return;
+        m_PlayerInRange = false;
+        m_HasTriggered = false;
+        m_GroundDetector = null;
+    }
+
+    private void Update()
+    {
+        if (!m_PlayerInRange || m_HasTriggered || m_GroundDetector == null) return;
+        if (!m_GroundDetector.IsGrounded) return;
+        if (DialogLoader.Instance == null || DialogLoader.Instance.IsDialogueActive) return;
+        m_HasTriggered = true;
+        Interactuar(m_GroundDetector.GetComponent<C_PlayerMotor>());
     }
     public void Interactuar(C_PlayerMotor player)
     {
-        //if (!player.IsGrounded) return;
         // ESTO DISPARA EL DIALOGO
         DialogLoader.Instance.PlayDialogue(m_DialogoId);
-        //player.StopPlayerMovement();
     }
 }

@@ -8,6 +8,7 @@ public class C_LaunchDebugger : MonoBehaviour
 
     // Aquí guardaremos los datos para mostrarlos
     private float m_LastFinalForce;
+    private float m_FinalForceLimitless;
     private float m_LastDistFactor;
     private float m_LastTimeFactor;
     private float m_LastRawDistance;
@@ -29,9 +30,10 @@ public class C_LaunchDebugger : MonoBehaviour
         }
     }
 
-    public void UpdateDebugInfo(float finalForce, float distFactor, float timeFactor, float rawDistance, float rawDuration)
+    public void UpdateDebugInfo(float finalForce, float finalForceLimitless, float distFactor, float timeFactor, float rawDistance, float rawDuration)
     {
         m_LastFinalForce = finalForce;
+        m_FinalForceLimitless = finalForceLimitless;
         m_LastDistFactor = distFactor;
         m_LastTimeFactor = timeFactor;
         m_LastRawDistance = rawDistance;
@@ -59,6 +61,7 @@ public class C_LaunchDebugger : MonoBehaviour
         GUILayout.Space(10);
 
         GUILayout.Label($"Fuerza Final: {m_LastFinalForce:F2}", style);
+        GUILayout.Label($"FFinal Sin Limite: {m_FinalForceLimitless:F2}", style);
         GUILayout.Space(5);
 
         GUILayout.Label("--- Impacto ---", style);
