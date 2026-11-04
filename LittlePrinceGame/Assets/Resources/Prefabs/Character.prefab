@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af0114b843fdbb84bb57d55c9c8f8437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogInteract
-  m_DialogoId: 1
+  m_DialogoId: 
   m_PlayerTag: Player
 --- !u!212 &8687399494557485082
 SpriteRenderer:
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: e9c2c8a74b1609a479e314732066e26c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

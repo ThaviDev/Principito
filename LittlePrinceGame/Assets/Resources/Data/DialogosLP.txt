@@ -11,14 +11,22 @@ Dial ID	Dial Next	Personaje	Color Auto	Emocion	Dialogo Esp	Dialogo Ing
 10	11	Vanidoso	/color:#9069e1/	/emote:Callado/	Sin embargo es verdad una cosa	
 11	12	Vanidoso	/color:#9069e1/	/emote:Aterrado/	No sirve de mucho ser el hombre más bello y mejor vestido	
 12	13	Vanidoso	/color:#9069e1/	/emote:Aterrado/	Sí soy el único de mi planeta.	
-13	14	Vanidoso	/color:#9069e1/	/emote:Feliz/	¡Por eso estoy haciendo una fiesta en mi planeta!	
+13	14	Vanidoso	/color:#9069e1/	/emote:Feliz/	¡Por eso estoy haciendo una fiesta!	
 14	15	Principito	/color:#acd8b9/	/emote:Contento/	Oh, eso suena divertido	
 15	16	Vanidoso	/color:#9069e1/	/emote:Contento/	¡Así es!	
-16	17	Vanidoso	/color:#9069e1/	/emote:Feliz/	Va a ser la mejor fiesta de todo el planeta	
+16	17	Vanidoso	/color:#9069e1/	/emote:Feliz/	Va a ser la mejor fiesta.../emote:Nervioso/ de todo el planeta...	
 17	18	Vanidoso	/color:#9069e1/	/emote:Aterrado/	Bueno, pero necesito que más personas vengan	
-18	19	Vanidoso	/color:#9069e1/	/emote:Nervioso/	Para que sea una fiesta de verdad	
+18	19	Vanidoso	/color:#9069e1/	/emote:Nervioso/	Para que sea una fiesta DE VERDAD	
 19	20	Vanidoso	/color:#9069e1/	/emote:Aterrado/	¿Me podrías hacer el favor de repartir estas invitaciones?	
 20	21	Principito	/color:#acd8b9/	/emote:Feliz/	¡Claro!	
 21	22	Vanidoso	/color:#9069e1/	/emote:Normal/	Asegurate de buscar en toda la galaxia	
 22	23	Principito	/color:#acd8b9/	/emote:Contento/	¡Seguro! Será divertido	
 23		Vanidoso	/color:#9069e1/	/emote:Normal/	Bueno, aquí te espero cuando hayas terminado	
+24	25	Vanidoso	/color:#9069e1/	/emote:Aterrado/	Necesito que personas vengan a mi fiesta	
+25	26	Vanidoso	/color:#9069e1/	/emote:Feliz/	Asegurate de buscar en toda la galaxia	
+26		Vanidoso	/color:#9069e1/	/emote:Normal/	Aquí te espero cuando hayas terminado	
+27	28	Principito	/color:#acd8b9/	/emote:Normal/	Hola, el hombre de allá está haciendo una fiesta	
+28	29	No Char	/color:#aaaaaa/	/emote:Normal/	Ah ok	
+29	30	No Char	/color:#aaaaaa/	/emote:Normal/	¿Va a ser divertida?	
+30	31	Principito	/color:#acd8b9/	/emote:Normal/	No lo se	
+31		No Char	/color:#aaaaaa/	/emote:Normal/	Bueno	

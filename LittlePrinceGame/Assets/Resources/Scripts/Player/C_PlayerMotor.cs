@@ -51,9 +51,14 @@ public class C_PlayerMotor : MonoBehaviour
         }
 
         if (m_Grounded.IsGrounded)
+        {
             m_Movement.Grounded(m_Input.WalkInput);
+        }
         else
+        {
+            m_Input.StopWalk();
             m_Movement.Fly();
+        }
     }
 
     private void HandleTouchDown(Vector2 worldPos)

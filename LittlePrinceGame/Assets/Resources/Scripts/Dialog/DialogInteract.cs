@@ -45,6 +45,7 @@ public class DialogInteract : MonoBehaviour
     {
         // ESTO DISPARA EL DIALOGO
         DialogLoader.Instance.PlayDialogue(m_DialogoId[m_CurrentDialogId]);
-        m_CurrentDialogId = (m_CurrentDialogId + 1) % m_DialogoId.Length;
+        //m_CurrentDialogId = (m_CurrentDialogId + 1) % m_DialogoId.Length;
+        m_CurrentDialogId = m_DialogoId.Length == m_CurrentDialogId + 1 ? m_CurrentDialogId : m_CurrentDialogId + 1;
     }
 }
