@@ -1,15 +1,24 @@
-Dialogo Id	Dialogo Siguiente	Personaje	Dialogo Espaniol	Dialogo Ingles
-1	2	No Char	Oh, ¡eres tu otra vez!	
-2	3	Principito	/color:#acd8b9/ Buen día	
-3	4	No Char	¿Volviste para aclamarme de nuevo?	
-4	5	Principito	/color:#acd8b9/ No recuerdo que fuera muy divertido	
-5	6	No Char	Por favor admirame de cualquier manera	
-6	7	Principito	/color:#acd8b9/ No puedo, no nos hemos conocido	
-7	8	Principito	/color:#acd8b9/ Así cómo yo conocí al zorro	
-8	9	No Char	No necesitas conocerme para poder admirarme	
-9		Principito	/color:#acd8b9/ ...	
-10	11	Zorro	Hm, me pregunto donde estará	
-11	12	Principito	/color:#acd8b9/ Oh, Hola Zorro	
-12	13	Zorro	Hola mi amigo	
-13	14	Zorro	Estoy buscando algo muy especial	
-14	15	Zorro	¿Me ayudarías a encontrarlo?	
+Dial ID	Dial Next	Personaje	Color Auto	Emocion	Dialogo Esp	Dialogo Ing
+1	2	Vanidoso	/color:#9069e1/	/emote:Asombrado/	Oh, ¡eres tu otra vez!	
+2	3	Principito	/color:#acd8b9/	/emote:Normal/	Hola señor	
+3	4	Vanidoso	/color:#9069e1/	/emote:Feliz/	¿Volviste para aclamarme de nuevo?	
+4	5	Principito	/color:#acd8b9/	/emote:Callado/	No recuerdo que fuera muy divertido	
+5	6	Vanidoso	/color:#9069e1/	/emote:Nervioso/	Por favor admirame de cualquier manera	
+6	7	Principito	/color:#acd8b9/	/emote:Normal/	Ok, te admiro	
+7	8	Principito	/color:#acd8b9/	/emote:Confundido/	Igual no se para que sirve	
+8	9	Vanidoso	/color:#9069e1/	/emote:Feliz/	No necesitas saber para que sirve admirar para admirarme	
+9	10	Principito	/color:#acd8b9/	/emote:Callado/	...	
+10	11	Vanidoso	/color:#9069e1/	/emote:Callado/	Sin embargo es verdad una cosa	
+11	12	Vanidoso	/color:#9069e1/	/emote:Aterrado/	No sirve de mucho ser el hombre más bello y mejor vestido	
+12	13	Vanidoso	/color:#9069e1/	/emote:Aterrado/	Sí soy el único de mi planeta.	
+13	14	Vanidoso	/color:#9069e1/	/emote:Feliz/	¡Por eso estoy haciendo una fiesta en mi planeta!	
+14	15	Principito	/color:#acd8b9/	/emote:Contento/	Oh, eso suena divertido	
+15	16	Vanidoso	/color:#9069e1/	/emote:Contento/	¡Así es!	
+16	17	Vanidoso	/color:#9069e1/	/emote:Feliz/	Va a ser la mejor fiesta de todo el planeta	
+17	18	Vanidoso	/color:#9069e1/	/emote:Aterrado/	Bueno, pero necesito que más personas vengan	
+18	19	Vanidoso	/color:#9069e1/	/emote:Nervioso/	Para que sea una fiesta de verdad	
+19	20	Vanidoso	/color:#9069e1/	/emote:Aterrado/	¿Me podrías hacer el favor de repartir estas invitaciones?	
+20	21	Principito	/color:#acd8b9/	/emote:Feliz/	¡Claro!	
+21	22	Vanidoso	/color:#9069e1/	/emote:Normal/	Asegurate de buscar en toda la galaxia	
+22	23	Principito	/color:#acd8b9/	/emote:Contento/	¡Seguro! Será divertido	
+23		Vanidoso	/color:#9069e1/	/emote:Normal/	Bueno, aquí te espero cuando hayas terminado	

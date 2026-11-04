@@ -4,10 +4,11 @@ using UnityEngine;
 public class DialogInteract : MonoBehaviour
 {
     [Tooltip("Id inicial del dialogo en el archivo de texto")]
-    [SerializeField] private int m_DialogoId = 1;
+    [SerializeField] private int[] m_DialogoId = new int[] { 1 };
     [Tooltip("Tag del jugador.")]
     [SerializeField] private string m_PlayerTag = "Player";
 
+    private int m_CurrentDialogId = 0;
     private bool m_PlayerInRange = false;
     private bool m_HasTriggered = false;
     private C_PlayerGroundDetector m_GroundDetector;
@@ -43,6 +44,7 @@ public class DialogInteract : MonoBehaviour
     public void Interactuar(C_PlayerMotor player)
     {
         // ESTO DISPARA EL DIALOGO
-        DialogLoader.Instance.PlayDialogue(m_DialogoId);
+        DialogLoader.Instance.PlayDialogue(m_DialogoId[m_CurrentDialogId]);
+        m_CurrentDialogId = (m_CurrentDialogId + 1) % m_DialogoId.Length;
     }
 }
