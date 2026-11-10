@@ -12,6 +12,7 @@ public enum Idioma {
 public class DialogLoader : MonoBehaviour
 {
     public static DialogLoader Instance { get; private set; }
+    public event Action<int> OnDialogueCompleted;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -22,7 +23,7 @@ public class DialogLoader : MonoBehaviour
         Instance = this;
 
         CargarArchivo();
-        OnDialogueRequested += HandleDialogueRequest;
+        OnDialogueRequested += HandleDialogRequest;
     }
     private class LineaDialogo
     {
@@ -56,7 +57,7 @@ public class DialogLoader : MonoBehaviour
     private Dictionary<int, LineaDialogo> dialogos = new Dictionary<int, LineaDialogo>();
     private void OnDestroy()
     {
-        OnDialogueRequested -= HandleDialogueRequest;
+        OnDialogueRequested -= HandleDialogRequest;
     }
     public void PlayDialogue(int idInicial)
     {
@@ -74,7 +75,7 @@ public class DialogLoader : MonoBehaviour
         Debug.Log($"Diálogos cargados: {dialogos.Count} entradas.");
     }
 
-    private void HandleDialogueRequest(int idInicial)
+    private void HandleDialogRequest(int idInicial)
     {
         if (dialogos == null || dialogos.Count == 0)
         {
@@ -103,6 +104,7 @@ public class DialogLoader : MonoBehaviour
                 // Apagamos el estado de diálogo
                 IsDialogueActive = false;
                 // Debug.Log("Diálogo terminado, el jugador puede volver a moverse.");
+                OnDialogueCompleted?.Invoke(idInicial);
             };
 
             // 4. Encendemos el estado y mostramos

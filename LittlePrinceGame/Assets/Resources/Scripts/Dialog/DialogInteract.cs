@@ -8,10 +8,14 @@ public class DialogInteract : MonoBehaviour
     [Tooltip("Tag del jugador.")]
     [SerializeField] private string m_PlayerTag = "Player";
 
+    [Tooltip("Opcional. Si se asigna, el ID se pregunta a este proveedor.")]
+    [SerializeField] private MonoBehaviour m_Provider;
+
     private int m_CurrentDialogId = 0;
     private bool m_PlayerInRange = false;
     private bool m_HasTriggered = false;
     private C_PlayerGroundDetector m_GroundDetector;
+
     private void Reset()
     {
         // Se asegura que el componente collider sea trigger
@@ -43,9 +47,17 @@ public class DialogInteract : MonoBehaviour
     }
     public void Interactuar(C_PlayerMotor player)
     {
+        int dialogId = m_DialogoId[m_CurrentDialogId];
+
         // ESTO DISPARA EL DIALOGO
-        DialogLoader.Instance.PlayDialogue(m_DialogoId[m_CurrentDialogId]);
+        DialogLoader.Instance.PlayDialogue(dialogId);
+
+        // Si hay proveedor y lo implementa, le preguntamos
+        if (m_Provider is IDialogProvider provider)
+            dialogId = provider.GetDialogId();
+
         //m_CurrentDialogId = (m_CurrentDialogId + 1) % m_DialogoId.Length;
         m_CurrentDialogId = m_DialogoId.Length == m_CurrentDialogId + 1 ? m_CurrentDialogId : m_CurrentDialogId + 1;
     }
+
 }
