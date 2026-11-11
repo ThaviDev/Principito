@@ -99,16 +99,18 @@ public class C_PlayerLaunchController : MonoBehaviour
     public void TryRelease(Vector2 fromWorld, Vector2 toWorld)
     {
         if (!IsPreparing || m_Target == null) { Reset(); return; }
-        Vector2 dragVector = (fromWorld - toWorld);
-        if (dragVector.sqrMagnitude < 0.2f) { Reset(); return; }
+        //Vector2 dir = fromWorld - toWorld;
+        Vector2 dir = C_TouchInputManager.Instance.InvertDrag ?
+            (toWorld - fromWorld) :
+            (fromWorld - toWorld);
+        //Vector2 dragVector = (fromWorld - toWorld);
+        if (dir.sqrMagnitude < 0.2f) { Reset(); return; }
 
         var launchRb = m_Target.GetComponent<Rigidbody2D>();
         if (launchRb == null) { Reset(); return; }
 
         var gesture = C_TouchInputManager.Instance.LastGesture;
         float force = CalculateLaunchForce(gesture);
-
-        Vector2 dir = fromWorld - toWorld;
 
         if (dir.sqrMagnitude < 0.0001f) dir = Vector2.up;
         dir.Normalize();

@@ -107,6 +107,11 @@ public class C_PlayerInputAdapter : MonoBehaviour
 
         if (dragVector.sqrMagnitude < 0.2f) { WalkInput = Vector2.zero; return; }
 
+        if (C_TouchInputManager.Instance.InvertDrag)
+        {
+            dragVector = -dragVector;
+        }
+
         Vector2 localDragVector = this.transform.InverseTransformDirection(dragVector);
         float degrees = Mathf.Atan2(localDragVector.y, localDragVector.x) * Mathf.Rad2Deg;
         if (degrees < 0)

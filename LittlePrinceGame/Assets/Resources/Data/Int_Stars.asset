@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01f4273b042eb2c4f9b9f2cac745f273, type: 3}
-  m_Name: Stars
+  m_Name: Int_Stars
   m_EditorClassIdentifier: Assembly-CSharp::IntSCOB
   _v: 0

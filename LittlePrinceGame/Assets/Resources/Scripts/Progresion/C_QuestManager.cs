@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class C_QuestManager : MonoBehaviour
@@ -15,6 +16,13 @@ public class C_QuestManager : MonoBehaviour
 
     [Header("Estado (solo lectura)")]
     public int CurrentMissionOfSequence = 0;
+
+    public event Action<SCOB_QuestData> OnSequentialMissionChanged;
+
+    public SCOB_QuestData CurrentSequentialQuest =>
+        CurrentMissionOfSequence < SequentialMissions.Count ? 
+        SequentialMissions[CurrentMissionOfSequence] : 
+        null;
 
     private void Awake()
     {
@@ -66,6 +74,8 @@ public class C_QuestManager : MonoBehaviour
         quest.OnCompleted += HandleSequentialCompleted;
         quest.Begin();
 
+        OnSequentialMissionChanged?.Invoke(quest);
+
         Debug.Log($"[QuestManager] Iniciando misión secuencial: {quest.Title}");
     }
 
@@ -82,7 +92,10 @@ public class C_QuestManager : MonoBehaviour
         if (nextIndex < SequentialMissions.Count)
             StartSequentialMission(nextIndex);
         else
+        {
+            OnSequentialMissionChanged?.Invoke(null);
             Debug.Log("[QuestManager] Secuencia de misiones principal completada.");
+        }
     }
 
     // --- Globales ---

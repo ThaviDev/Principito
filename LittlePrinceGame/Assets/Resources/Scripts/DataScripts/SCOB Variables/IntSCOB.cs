@@ -4,10 +4,11 @@ using UnityEngine;
 public class IntSCOB : ScriptableObject
 {
     [SerializeField] private int _v;
-    private void OnEnable() => _v = 0;   // solo se ejecuta al cargar el asset
+    [SerializeField] private int _defaultV;
+    private void OnEnable() => _v = _defaultV;   // solo se ejecuta al cargar el asset
     private void OnDisable() 
     {
-        _v = 0;
+        _v = _defaultV;
         A_OnValueChange = null;
     }  // limpia al parar el editor
     public event Action<int> A_OnValueChange;
@@ -19,7 +20,7 @@ public class IntSCOB : ScriptableObject
         A_OnValueChange?.Invoke(_v);
     }
     public void Add(int amount) =>SetValue(_v + amount);
-    public void Reset() => SetValue(0);
+    public void Reset() => SetValue(_defaultV);
     private void OnValidate() => A_OnValueChange?.Invoke(_v);
     public void SetValueSilent(int newValue) => _v = newValue;
 }

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 137280577ec82014999fa386febc4cd0, type: 3}
+  m_Name: Q_VanidosoPlat1
+  m_EditorClassIdentifier: Assembly-CSharp::SOQuest_NPCInteractions
+  QuestId: 0
+  Title: VanidosoPart1
+  Description: 'Hablar de nuevo con el hombre vanidoso
+
+'
+  m_RequiredCount: {fileID: 11400000, guid: 79462c99555c35e4d9af92af61f9a51b, type: 2}
+  ValidNpcIds:
+  - Vanidoso
+  m_CurrentCount: {fileID: 11400000, guid: 6c5001841a30bbf4cba1c8d52da15fe0, type: 2}

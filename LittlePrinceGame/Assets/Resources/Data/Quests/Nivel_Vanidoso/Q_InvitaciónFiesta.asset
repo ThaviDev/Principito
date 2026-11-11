@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 137280577ec82014999fa386febc4cd0, type: 3}
-  m_Name: TalkToNpcQuest
+  m_Name: "Q_Invitaci\xF3nFiesta"
   m_EditorClassIdentifier: Assembly-CSharp::SOQuest_NPCInteractions
-  QuestId: quest_id
-  Title: Nombre de la Mision
-  Description: Descripcion de la mision
-  RequiredCount: 3
+  QuestId: 1
+  Title: Invitados
+  Description: Busca en toda la galaxia por las personas que quieran ir a la fiesta
+  m_RequiredCount: {fileID: 11400000, guid: eed63ea77ba4a374ea6e79ce2198a249, type: 2}
   ValidNpcIds: []
+  m_CurrentCount: {fileID: 11400000, guid: 8bb791a0fb310774d86baf257c5adeb2, type: 2}

@@ -3,6 +3,11 @@ using UnityEngine;
 public class C_TouchInputManager : MonoBehaviour
 {   
     public static C_TouchInputManager Instance;
+    [SerializeField] private float m_WalkAngle;
+    [Tooltip("Si esta activo la direccion donde arrastras es hacia donde te mueves/lanzas" +
+        "Si esta desactivado es estilo resortera (arrastras al lado opuesto)")]
+    [SerializeField] private bool m_InvertDrag = false;
+    public bool InvertDrag => m_InvertDrag;
 
     [System.Serializable]
     public struct TouchGesture

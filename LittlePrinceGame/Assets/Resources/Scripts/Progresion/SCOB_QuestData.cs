@@ -54,9 +54,26 @@ public abstract class SCOB_QuestData : ScriptableObject
     }
 
     /// <summary>
+    /// La UI llama a este método para saber cómo pintarse.
+    /// Devuelve false si la misión no usa variables IntSCOB para su display.
+    /// </summary>
+    public virtual bool TryGetDisplayData(
+        out IntSCOB value1, out IntSCOB value2,
+        out string prefix, out string middle, out string postfix)
+    {
+        value1 = null;
+        value2 = null;
+        prefix = "";
+        middle = "";
+        postfix = "";
+        return false; // por defecto, no hay display especial
+    }
+
+    /// <summary>
     /// Se llama al iniciar el juego, para resetear la misión.
     /// Cada hija puede sobrescribirlo para limpiar sus propias variables.
     /// </summary>
+    /// 
     public virtual void ResetQuest()
     {
         IsCompleted = false;
