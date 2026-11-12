@@ -29,6 +29,7 @@ public class C_PlayerInputAdapter : MonoBehaviour
 
     public GroundControlMode MyGroundControlMode => m_GroundMode;
     public GroundDirection Direction => m_Direction;
+    public bool IsWalkGesture { get; private set; }
 
     private void Awake()
     {
@@ -105,41 +106,46 @@ public class C_PlayerInputAdapter : MonoBehaviour
         Vector2 currentPos = touch.TouchFollower.transform.position;
         Vector2 dragVector = (currentPos - m_TouchWorldDown);
 
-        if (dragVector.sqrMagnitude < 0.2f) { WalkInput = Vector2.zero; return; }
+        if (dragVector.sqrMagnitude < 0.2f) { 
+            WalkInput = Vector2.zero; 
+            IsWalkGesture = false;
+            return; 
+        }
 
         if (C_TouchInputManager.Instance.InvertDrag)
         {
             dragVector = -dragVector;
         }
 
-        Vector2 localDragVector = this.transform.InverseTransformDirection(dragVector);
+        Vector2 localDragVector = transform.InverseTransformDirection(dragVector);
         float degrees = Mathf.Atan2(localDragVector.y, localDragVector.x) * Mathf.Rad2Deg;
-        if (degrees < 0)
-        {
-            degrees += 360;
-        }
+        if (degrees < 0) { degrees += 360; }
         //Debug.Log("Angulo del Swipe: " + degrees);
         if (degrees <= m_WalkAngle || degrees >= 360f - m_WalkAngle)
         {
             WalkInput = Vector2.left;
             Debug.Log("Izquierda");
+            IsWalkGesture = true;
             m_Direction = GroundDirection.Left;
         } else if (Mathf.Abs(degrees - 90f) <= m_UpDownAngle)
         {
             WalkInput = Vector2.zero;
             Debug.Log("Arriba");
+            IsWalkGesture = false;
             m_Direction = GroundDirection.Up;
         }
         else if (Mathf.Abs(degrees - 180f) <= m_WalkAngle)
         {
             WalkInput = Vector2.right;
             Debug.Log("Derecha");
+            IsWalkGesture = true;
             m_Direction = GroundDirection.Right;
         }
         else if (Mathf.Abs(degrees - 270f) <= m_UpDownAngle)
         {
             WalkInput = Vector2.zero;
             Debug.Log("Abajo");
+            IsWalkGesture = false;
             m_Direction = GroundDirection.Down;
         }
     }

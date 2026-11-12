@@ -322,6 +322,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3984807636421140319, guid: 76bf558ede1b6f34c920f7372e3286b0, type: 3}
+      propertyPath: Priority
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 7502507571560700256, guid: 76bf558ede1b6f34c920f7372e3286b0, type: 3}
       propertyPath: m_Name
       value: GM
@@ -570,7 +574,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 39.85
+  m_fontSize: 53.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

@@ -16,5 +16,14 @@ MonoBehaviour:
   Title: Invitados
   Description: Busca en toda la galaxia por las personas que quieran ir a la fiesta
   m_RequiredCount: {fileID: 11400000, guid: eed63ea77ba4a374ea6e79ce2198a249, type: 2}
-  ValidNpcIds: []
+  ValidNpcIds:
+  - "Ni\xF1o1"
+  - "Ni\xF1o2"
+  - "Ni\xF1o3"
+  - "Ni\xF1o4"
+  - "Ni\xF1o5"
+  - "Ni\xF1o6"
+  - "Ni\xF1o7"
+  - "Ni\xF1o8"
+  - Zorro
   m_CurrentCount: {fileID: 11400000, guid: 8bb791a0fb310774d86baf257c5adeb2, type: 2}

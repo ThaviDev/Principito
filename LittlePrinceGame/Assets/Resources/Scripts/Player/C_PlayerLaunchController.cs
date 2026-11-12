@@ -21,6 +21,11 @@ public class C_PlayerLaunchController : MonoBehaviour
     [SerializeField] private float m_MaxHoldDuration = 1.5f;
     [Tooltip("Maxima cantidad de potencia que puede tener un lanzamiento")]
     [SerializeField] private float m_MaxLaunchPower = 500f;
+    [Tooltip("Tiempo durante el cual se ignora la detección de suelo tras despegar. " +
+             "Debe ser suficiente para alejarse de m_RayDistance, pero corto para no " +
+             "perder un aterrizaje real.")]
+    [SerializeField] private float m_GroundSuppressionTime = 0.15f;
+    private bool m_WasGroundedAtBegin;
 
     [Header("References")]
     [SerializeField] private Rigidbody2D m_rb;
@@ -85,6 +90,7 @@ public class C_PlayerLaunchController : MonoBehaviour
         }
 
         rb.linearVelocity = Vector2.zero;
+        m_WasGroundedAtBegin = isGrounded;
         IsPreparing = true;
         A_OnLaunchStart?.Invoke();
     }
@@ -106,6 +112,14 @@ public class C_PlayerLaunchController : MonoBehaviour
         //Vector2 dragVector = (fromWorld - toWorld);
         if (dir.sqrMagnitude < 0.2f) { Reset(); return; }
 
+        // si el gesto fue horizontal y empezó en suelo, NO lanzamos.
+        // Dejamos que C_PlayerMotor use WalkInput (ya clasificado) y el jugador camine.
+        if (m_WasGroundedAtBegin && m_InputAdapter.IsWalkGesture)
+        {
+            Reset();
+            return;
+        }
+
         var launchRb = m_Target.GetComponent<Rigidbody2D>();
         if (launchRb == null) { Reset(); return; }
 
@@ -115,12 +129,18 @@ public class C_PlayerLaunchController : MonoBehaviour
         if (dir.sqrMagnitude < 0.0001f) dir = Vector2.up;
         dir.Normalize();
 
-        if (m_GroundDetector.IsGrounded)
+        Debug.Log("Final Force: " + (m_WasGroundedAtBegin ? 500 : force));
+
+        bool isSelf = (m_Target == this.gameObject);
+        bool wasGrounded = m_GroundDetector.IsGrounded;
+
+        if (m_WasGroundedAtBegin)
             launchRb.AddForce(dir * 500, ForceMode2D.Force);
         else 
             launchRb.AddForce(dir * force, ForceMode2D.Force);
-        Debug.Log("Final Force: " + force);
 
+        if (isSelf && wasGrounded)
+            m_GroundDetector.SuppressGroundDetection(m_GroundSuppressionTime);
         //if (m_Target == this.gameObject)
             //m_Anim.SetAnimationState?.Invoke(PlayerAnimationStates.fly);
 

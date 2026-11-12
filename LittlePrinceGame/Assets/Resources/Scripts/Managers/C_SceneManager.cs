@@ -1,12 +1,13 @@
 using System;
 using UnityEngine;
+// La escena que se carga con el enum tiene que tener el nombre exacto de la escena en Unity, sino no se cargará.
 public enum SceneName
 {
     TestGameplay,
     TestMainMenu,
     MainMenu,
     Level1,
-    Level2,
+    Nivel_Vanidoso,
     Level3,
     GameOver,
     Victory

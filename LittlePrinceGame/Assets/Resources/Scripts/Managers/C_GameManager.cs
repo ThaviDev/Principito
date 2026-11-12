@@ -49,7 +49,8 @@ public class C_GameManager : MonoBehaviour
     }
     private void StartGameplay()
     {
-        C_SceneManager.A_LoadScene?.Invoke(SceneName.TestGameplay);
+        // Aqui se tiene que guardar el progreso del jugador y cargar la escena correspondiente
+        C_SceneManager.A_LoadScene?.Invoke(SceneName.Nivel_Vanidoso);
         C_SoundManager.A_ChangeMusicState?.Invoke(MusicState.Exploration, 0f);
     }
     private void OnDestroy()

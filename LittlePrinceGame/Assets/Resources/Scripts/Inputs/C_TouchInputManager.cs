@@ -61,6 +61,7 @@ public class C_TouchInputManager : MonoBehaviour
         m_touchStartTime = Time.unscaledTime;
         m_touchStartPos = touchPos;
         m_touchCurrentPos = touchPos;
+        m_isTouchPressing = true;
 
         if (m_touchDownObj != null)
         {
@@ -73,7 +74,6 @@ public class C_TouchInputManager : MonoBehaviour
         m_touchCurrentPos = touchPos;
         if (m_touchFollower != null) m_touchFollower.transform.position = touchPos;
         //Debug.Log("Touch Update Triggering in position: " + touchPos);
-        m_isTouchPressing = true;
     }
     public void TriggerTouchUp(Vector3 touchPos)
     {

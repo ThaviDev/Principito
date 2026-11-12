@@ -473,7 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_PlayerLaunchController
   m_BaseLaunchForce: 800
-  m_SelfLiftForce: 0
+  m_SelfLiftForce: 1200
   m_TimeTypeForceIsPositive: 1
   m_DistanceImpact: 1
   m_TimeImpact: 1
@@ -528,9 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5431e0fb9eb8c1419c1a47e4a79999d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_GravObjectPlayer
-  m_Planets:
-  - {fileID: 0}
-  - {fileID: 0}
+  m_Planets: []
   m_rb: {fileID: 0}
 --- !u!114 &9141092468611575964
 MonoBehaviour:
