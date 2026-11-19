@@ -12,6 +12,7 @@ public class C_PlayerCameraController : MonoBehaviour
     [Header("Air")]
     [SerializeField] private float m_SizeAir = 5f;
     [SerializeField] private float m_RotSpeedAir = 0f;
+    [SerializeField] private bool m_RotateTo0DegreesInAir = true;
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class C_PlayerCameraController : MonoBehaviour
     private void Apply(bool grounded)
     {
         m_Camera.CameraSize = grounded ? m_SizeGrounded : m_SizeAir;
+        m_Camera.RotateTo0Degrees = grounded ? false : m_RotateTo0DegreesInAir;
         //Debug.Log("Camera Rotation is " + grounded);
         m_Camera.RotationSpeed = grounded ? m_RotSpeedGround : m_RotSpeedAir;
     }

@@ -131,7 +131,7 @@ public class C_PlayerInputAdapter : MonoBehaviour
         {
             WalkInput = Vector2.zero;
             Debug.Log("Arriba");
-            IsWalkGesture = false;
+            IsWalkGesture = true;
             m_Direction = GroundDirection.Up;
         }
         else if (Mathf.Abs(degrees - 180f) <= m_WalkAngle)

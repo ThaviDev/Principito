@@ -24,7 +24,9 @@ public class C_CameraFollower : MonoBehaviour
 
     [Header("Rotación")]
     [SerializeField] float m_rotationSpeed = 5f; // Velocidad de rotación hacia el objetivo
+    [SerializeField] bool m_rotateTo0Degrees = false; // Si es true, la cámara se rotará a 0 grados en lugar de seguir la rotación del objetivo
     public float RotationSpeed { get { return m_rotationSpeed; } set { m_rotationSpeed = value; } }
+    public bool RotateTo0Degrees { get { return m_rotateTo0Degrees; } set { m_rotateTo0Degrees = value; } }
 
     float m_xSpeed;
     float m_ySpeed;
@@ -43,11 +45,27 @@ public class C_CameraFollower : MonoBehaviour
 
         HandleCameraMovement(targetPosition);
         ApplyDeadZones(targetPosition);
-
-        Quaternion targetRotation = m_target.rotation;
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, m_rotationSpeed * Time.deltaTime);
+        ApplyRotation();
 
         m_cam.orthographicSize = Mathf.Lerp(m_cam.orthographicSize, m_CameraSize, Time.deltaTime * 2f);
+    }
+
+    void ApplyRotation()
+    {
+        Quaternion targetRotation = Quaternion.identity;
+        if (m_rotateTo0Degrees)
+        {
+            // Rota hacia 0 grados en el mundo 
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.identity, m_rotationSpeed * Time.deltaTime);
+            return;
+        }
+        else
+        {
+            // Sigue la rotación del objetivo
+            targetRotation = m_target.rotation;
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, m_rotationSpeed * Time.deltaTime);
+        }
+        //
     }
 
     Vector2 CalculateOvershoot()

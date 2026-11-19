@@ -107,7 +107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3910329901667857861
 Transform:
   m_ObjectHideFlags: 0
@@ -456,10 +456,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::C_PlayerCameraController
   m_Grounded: {fileID: 685892463627721771}
   m_Camera: {fileID: 0}
-  m_SizeGrounded: 4
-  m_RotSpeedGround: 7.5
+  m_SizeGrounded: 3
+  m_RotSpeedGround: 0
   m_SizeAir: 5
-  m_RotSpeedAir: 0
+  m_RotSpeedAir: 5
+  m_RotateTo0DegreesInAir: 1
 --- !u!114 &8614476759249663197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,6 +483,7 @@ MonoBehaviour:
   m_MaxSwipeDistance: 20
   m_MaxHoldDuration: 1
   m_MaxLaunchPower: 350
+  m_GroundSuppressionTime: 0.15
   m_rb: {fileID: 0}
   m_Anim: {fileID: 9095539765933867113}
   m_InputAdapter: {fileID: 0}
@@ -760,7 +762,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5145096126753473302
 Transform:
   m_ObjectHideFlags: 0
