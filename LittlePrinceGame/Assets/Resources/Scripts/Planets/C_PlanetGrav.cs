@@ -12,6 +12,7 @@ public class C_PlanetGrav : MonoBehaviour
     public float GravityRadius { get { return m_GravityRadius; } }
     [SerializeField] private Color m_ColorPlanet;
     [SerializeField] private Color m_ColorAtmosphere;
+    [SerializeField] private Sprite m_PlanetSprite;
 
     [Header("References")]
     [SerializeField] private TAG_Atmosphere m_Atmosphere;
@@ -60,6 +61,7 @@ public class C_PlanetGrav : MonoBehaviour
 
         m_PlanetVisual.GetComponent<SpriteRenderer>().color = m_ColorPlanet;
         m_Atmosphere.GetComponent<SpriteRenderer>().color = m_ColorAtmosphere;
+        m_PlanetVisual.GetComponent<SpriteRenderer>().sprite = m_PlanetSprite;
         SetPlanet();
     }
     void Start()

@@ -2,12 +2,22 @@ using UnityEngine;
 
 public class StarCollectable : MonoBehaviour, I_Collectable
 {
-    [SerializeField] private int _value = 1;
-    public int Value => _value;
+    [SerializeField] private int m_value = 1;
+    [SerializeField] private GameObject m_collectParticle;
+    private C_StarTrail m_trail;
+    public int Value => m_value;
+    private void Start()
+    {
+        m_trail = GetComponentInChildren<C_StarTrail>();
+    }
     public void Collect(I_Collector who)
     {
+        Instantiate(m_collectParticle, transform.position, Quaternion.identity);
         who.CollectThing(this);
         C_SoundManager.A_PlaySFX?.Invoke(SFXTypes.ColectablePickup, 1f);
+        //var trail = GetComponentInChildren<TrailRenderer>();
+        m_trail?.transform.SetParent(null);
+        m_trail.StopPlay = 1f;
         Destroy(gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)
