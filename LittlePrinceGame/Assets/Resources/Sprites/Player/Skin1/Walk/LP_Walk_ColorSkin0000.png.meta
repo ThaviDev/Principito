@@ -1,13 +1,22 @@
 fileFormatVersion: 2
-guid: 83c48872d32796b46a3639ddd90cc2d0
+guid: fd7f4c9580e9ca44b986799ccd599237
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8427026302893759675
-    second: S_LitP_Walk0004_0
+      213: 4833578511479787466
+    second: LP_Walk_ColorSkin0000_0
   - first:
-      213: 5788502918407593187
-    second: S_LitP_Walk0004_1
+      213: 3022420530454579883
+    second: LP_Walk_ColorSkin0000_1
+  - first:
+      213: -1814355698766529311
+    second: LP_Walk_ColorSkin0000_2
+  - first:
+      213: 7730544440914043239
+    second: LP_Walk_ColorSkin0000_3
+  - first:
+      213: -1054181093714916828
+    second: LP_Walk_ColorSkin0000_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -99,17 +108,43 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: S_LitP_Walk0004_0
+      name: LP_Walk_ColorSkin0000_0
       rect:
         serializedVersion: 2
-        x: 73
-        y: 18
-        width: 107
-        height: 200
+        x: 91
+        y: 58
+        width: 78
+        height: 92
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 543e42fc9303d0b80800000000000000
-      internalID: -8427026302893759675
+      spriteID: acfc6bafb02541340800000000000000
+      internalID: 4833578511479787466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: S_LitP_Walk0004_1
+      name: LP_Walk_ColorSkin0000_1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 213
-        width: 24
-        height: 28
+        x: 104
+        y: 144
+        width: 44
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +175,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3ec1ff84cb4e45050800000000000000
-      internalID: 5788502918407593187
+      spriteID: baac79f757bc1f920800000000000000
+      internalID: 3022420530454579883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LP_Walk_ColorSkin0000_2
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 149
+        width: 40
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ecb0d6da1d12d6e0800000000000000
+      internalID: -1814355698766529311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LP_Walk_ColorSkin0000_3
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 31
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7616d09f539684b60800000000000000
+      internalID: 7730544440914043239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LP_Walk_ColorSkin0000_4
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 29
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42a803c61ebce51f0800000000000000
+      internalID: -1054181093714916828
       vertices: []
       indices: 
       edges: []
@@ -160,8 +261,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      S_LitP_Walk0004_0: -8427026302893759675
-      S_LitP_Walk0004_1: 5788502918407593187
+      LP_Walk_ColorSkin0000_0: 4833578511479787466
+      LP_Walk_ColorSkin0000_1: 3022420530454579883
+      LP_Walk_ColorSkin0000_2: -1814355698766529311
+      LP_Walk_ColorSkin0000_3: 7730544440914043239
+      LP_Walk_ColorSkin0000_4: -1054181093714916828
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

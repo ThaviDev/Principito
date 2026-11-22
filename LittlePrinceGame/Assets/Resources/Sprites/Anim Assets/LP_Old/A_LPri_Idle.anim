@@ -21,9 +21,18 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: 34aed78d7b3e08f4f80875cb73af53e4, type: 3}
+      value: {fileID: 21300000, guid: 314c88a2328f3594cbf5c09f20a7e555, type: 3}
     attribute: m_Sprite
-    path: 
+    path: TopSkin
+    classID: 212
+    script: {fileID: 0}
+    flags: 2
+  - serializedVersion: 2
+    curve:
+    - time: 0
+      value: {fileID: 21300000, guid: f34f259a5e081bd40b30be101f6c9332, type: 3}
+    attribute: m_Sprite
+    path: ColorSkin
     classID: 212
     script: {fileID: 0}
     flags: 2
@@ -35,7 +44,16 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 0
+      path: 3381221286
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    - serializedVersion: 2
+      path: 3178539510
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -44,7 +62,8 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 34aed78d7b3e08f4f80875cb73af53e4, type: 3}
+    - {fileID: 21300000, guid: 314c88a2328f3594cbf5c09f20a7e555, type: 3}
+    - {fileID: 21300000, guid: f34f259a5e081bd40b30be101f6c9332, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
