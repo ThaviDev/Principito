@@ -369,6 +369,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2719943527178925140, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f6ed960197135b540b1c9ef81fe30a46, type: 3}
+    - target: {fileID: 6760424137718663571, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_PlanetSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f6ed960197135b540b1c9ef81fe30a46, type: 3}
     - target: {fileID: 6760424137718663571, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
       propertyPath: m_GravityStrength
       value: 4
@@ -7715,6 +7723,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 14.1
       objectReference: {fileID: 0}
+    - target: {fileID: 2719943527178925140, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f6ed960197135b540b1c9ef81fe30a46, type: 3}
     - target: {fileID: 4303907096087376789, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
       propertyPath: m_Radius
       value: 7
@@ -7735,6 +7747,10 @@ PrefabInstance:
       propertyPath: m_PlanetSize
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 6760424137718663571, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_PlanetSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f6ed960197135b540b1c9ef81fe30a46, type: 3}
     - target: {fileID: 6760424137718663571, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
       propertyPath: m_GravityRadius
       value: 14
@@ -39065,16 +39081,20 @@ PrefabInstance:
       value: 10.1
       objectReference: {fileID: 0}
     - target: {fileID: 2719943527178925140, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1e4c6c88da3bcd648bdb1a3ce645281a, type: 3}
+    - target: {fileID: 2719943527178925140, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
       propertyPath: m_Color.b
-      value: 0.6313726
+      value: 0.29076183
       objectReference: {fileID: 0}
     - target: {fileID: 2719943527178925140, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
       propertyPath: m_Color.g
-      value: 0.865426
+      value: 0.6226415
       objectReference: {fileID: 0}
     - target: {fileID: 2719943527178925140, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
       propertyPath: m_Color.r
-      value: 0.8862745
+      value: 0.32579458
       objectReference: {fileID: 0}
     - target: {fileID: 4303907096087376789, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
       propertyPath: m_Radius
@@ -39097,16 +39117,20 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6760424137718663571, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_PlanetSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1e4c6c88da3bcd648bdb1a3ce645281a, type: 3}
+    - target: {fileID: 6760424137718663571, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
       propertyPath: m_ColorPlanet.b
-      value: 0.6313726
+      value: 0.29076183
       objectReference: {fileID: 0}
     - target: {fileID: 6760424137718663571, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
       propertyPath: m_ColorPlanet.g
-      value: 0.865426
+      value: 0.6226415
       objectReference: {fileID: 0}
     - target: {fileID: 6760424137718663571, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
       propertyPath: m_ColorPlanet.r
-      value: 0.8862745
+      value: 0.32579458
       objectReference: {fileID: 0}
     - target: {fileID: 6760424137718663571, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
       propertyPath: m_GravityRadius
