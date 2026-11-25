@@ -12,7 +12,9 @@ public class C_RotateTowardsPlanet : MonoBehaviour
     {
         if(m_CanRotate == false) return;
         AplicarRotacion();
-        m_NearestPlanet = C_PlanetUtility.GetNearestPlanet(transform.position);
+        if (Application.isPlaying) return;
+        var nearest = C_PlanetUtility.GetNearestPlanet(transform.position);
+        if (nearest != null) m_NearestPlanet = nearest;
     }
     private void Start()
     {
