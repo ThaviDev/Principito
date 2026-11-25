@@ -17,6 +17,7 @@ MonoBehaviour:
   Description: Busca en toda la galaxia por las personas que quieran ir a la fiesta
   m_RequiredCount: {fileID: 11400000, guid: eed63ea77ba4a374ea6e79ce2198a249, type: 2}
   ValidNpcIds:
+  - "Ni\xF1o0"
   - "Ni\xF1o1"
   - "Ni\xF1o2"
   - "Ni\xF1o3"

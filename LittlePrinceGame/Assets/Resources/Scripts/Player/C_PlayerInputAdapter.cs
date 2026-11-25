@@ -30,6 +30,7 @@ public class C_PlayerInputAdapter : MonoBehaviour
     public GroundControlMode MyGroundControlMode => m_GroundMode;
     public GroundDirection Direction => m_Direction;
     public bool IsWalkGesture { get; private set; }
+    public bool HasActiveDrag { get; private set; }
 
     private void Awake()
     {
@@ -95,6 +96,14 @@ public class C_PlayerInputAdapter : MonoBehaviour
         {
             Vector2 upWorld = inptTouchUpObj != null ? (Vector2)inptTouchUpObj.transform.position : m_TouchWorldDown;
             A_OnTouchUp?.Invoke(m_TouchWorldDown, upWorld);
+
+            // En Swipe, el movimiento existe sólo mientras se mantiene pulsado.
+            if (m_GroundMode == GroundControlMode.Swipe)
+            {
+                WalkInput = Vector2.zero;
+                IsWalkGesture = false;
+                HasActiveDrag = false;
+            }
         }
         m_WasTouching = IsTouching;
     }
@@ -109,8 +118,11 @@ public class C_PlayerInputAdapter : MonoBehaviour
         if (dragVector.sqrMagnitude < 0.2f) { 
             WalkInput = Vector2.zero; 
             IsWalkGesture = false;
+            HasActiveDrag = false;
             return; 
         }
+
+        HasActiveDrag = true;
 
         if (C_TouchInputManager.Instance.InvertDrag)
         {

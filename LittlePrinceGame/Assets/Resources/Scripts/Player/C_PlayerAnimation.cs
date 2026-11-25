@@ -6,8 +6,8 @@ public enum PlayerAnimationStates
     walk,
     spinning,
     fly,
+    prepareJump,
     landing,
-    jump,
 }
 public class C_PlayerAnimation : MonoBehaviour
 {
@@ -50,6 +50,6 @@ public class C_PlayerAnimation : MonoBehaviour
     }
     private void OnDestroy()
     {
-        SetAnimationState -= ChangeAnimationState;
+        SetAnimationState -= CheckStateEvent;
     }
 }

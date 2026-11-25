@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_LPSkin 2
+  m_Name: M_LP_Color
   m_Shader: {fileID: -6465566751694194690, guid: 5a4b3a82dcd449d4e91e0ec6385bdaba, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -50,9 +50,9 @@ Material:
     - _ObjectScale: 1
     m_Colors:
     - White: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.93238497, g: 0.9433962, b: 0.12014952, a: 1}
-    - _Color2: {r: 0.4513018, g: 0.764151, b: 0.4289338, a: 1}
-    - _Color3: {r: 0.23073156, g: 0.2844631, b: 0.8018868, a: 1}
+    - _Color1: {r: 0.6745098, g: 0.84705883, b: 0.7254902, a: 1}
+    - _Color2: {r: 0.99607843, g: 0.54509807, b: 0.40784314, a: 1}
+    - _Color3: {r: 0.54901963, g: 0.34509805, b: 0.06666667, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &5748073809429443815

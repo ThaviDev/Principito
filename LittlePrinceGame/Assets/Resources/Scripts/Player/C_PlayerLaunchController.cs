@@ -25,7 +25,8 @@ public class C_PlayerLaunchController : MonoBehaviour
              "Debe ser suficiente para alejarse de m_RayDistance, pero corto para no " +
              "perder un aterrizaje real.")]
     [SerializeField] private float m_GroundSuppressionTime = 0.15f;
-    private bool m_WasGroundedAtBegin;
+    [Tooltip("Fuerza fija para lanzarse desde el suelo")]
+    [SerializeField] private float m_GroundLauchForce = 500f;
 
     [Header("References")]
     [SerializeField] private Rigidbody2D m_rb;
@@ -38,6 +39,9 @@ public class C_PlayerLaunchController : MonoBehaviour
     public bool IsPreparing { get; private set; }
     public event Action A_OnLaunchStart;
     public event Action A_OnLaunchRelease;
+
+    private bool m_TouchTracking;
+    private bool m_WasGroundedAtBegin;
 
     private void Awake()
     {
@@ -53,6 +57,31 @@ public class C_PlayerLaunchController : MonoBehaviour
 
     private void Update()
     {
+        if (!m_TouchTracking || m_Target == null) return;
+        if (C_TouchInputManager.Instance == null || !C_TouchInputManager.Instance.IsTouchPressing) return;
+
+        if (m_WasGroundedAtBegin)
+        {
+            // En suelo: sólo "Abajo" congela para lanzarse. Arriba = neutro (para interacciones),
+            // Izq/Der = caminar (WalkInput fluye al motor, sin congelar).
+            bool wantsGroundPrepare = m_InputAdapter.HasActiveDrag && m_InputAdapter.Direction == GroundDirection.Down;
+
+            if (wantsGroundPrepare && !IsPreparing)
+                BeginPrepare(PlayerAnimationStates.prepareJump);
+            else if (!wantsGroundPrepare && IsPreparing)
+                Reset();
+        }
+        else if (C_LaunchDebugger.Instance != null)
+        {
+            // En aire: cualquier gesto congela para lanzar. (no hay interacciones ni caminar)
+            var tm = C_TouchInputManager.Instance;
+            Vector2 start = tm.TouchDownObj != null ? (Vector2)tm.TouchDownObj.transform.position : Vector2.zero;
+            Vector2 cur = tm.TouchFollower != null ? (Vector2)tm.TouchFollower.transform.position : start;
+            C_LaunchDebugger.Instance.UpdateDebugInfo(0f, 0f, 0f, 0f, 
+                Vector2.Distance(start, cur), 
+                tm.TouchDuration);
+        }
+        /*
         // Si estamos preparando el lanzamiento, calculamos la fuerza en tiempo real (solo para verla en pantalla)
         if (IsPreparing && C_TouchInputManager.Instance.IsTouchPressing)
         {
@@ -64,6 +93,7 @@ public class C_PlayerLaunchController : MonoBehaviour
             if (C_LaunchDebugger.Instance != null)
                 C_LaunchDebugger.Instance.UpdateDebugInfo(0f, 0f, 0f, 0f, currentDist, currentDuration);
         }
+        */
     }
 
     public void TryBegin(Vector2 touchWorldPos, bool isGrounded)
@@ -77,7 +107,14 @@ public class C_PlayerLaunchController : MonoBehaviour
         if (rb == null) return;
 
         m_Target = target;
+        m_WasGroundedAtBegin = isGrounded;
+        m_TouchTracking = true;
 
+        if (!isGrounded)
+        {
+            BeginPrepare(PlayerAnimationStates.spinning);
+        }
+        /*
         if (target == this.gameObject)
         {
             m_Target = gameObject;
@@ -88,11 +125,11 @@ public class C_PlayerLaunchController : MonoBehaviour
                 m_Anim.SetAnimationState?.Invoke(PlayerAnimationStates.spinning);
             }
         }
-
         rb.linearVelocity = Vector2.zero;
         m_WasGroundedAtBegin = isGrounded;
         IsPreparing = true;
         A_OnLaunchStart?.Invoke();
+        */
     }
 
     public void Preparing()
@@ -100,7 +137,7 @@ public class C_PlayerLaunchController : MonoBehaviour
         if (!IsPreparing || m_Target == null) return;
         var launchRb = m_Target.GetComponent<Rigidbody2D>();
         if (launchRb != null) launchRb.linearVelocity = Vector2.zero;
-        print("Objeto seleccionado esta en velocidad 0");
+        //print("Objeto seleccionado esta en velocidad 0");
     }
     public void TryRelease(Vector2 fromWorld, Vector2 toWorld)
     {
@@ -114,7 +151,9 @@ public class C_PlayerLaunchController : MonoBehaviour
 
         // si el gesto fue horizontal y empezó en suelo, NO lanzamos.
         // Dejamos que C_PlayerMotor use WalkInput (ya clasificado) y el jugador camine.
-        if (m_WasGroundedAtBegin && m_InputAdapter.IsWalkGesture)
+        // Desde el suelo: izquierda/derecha/arriba NO lanzan. Sólo Abajo.
+        //if (m_WasGroundedAtBegin && m_InputAdapter.IsWalkGesture)
+        if (m_WasGroundedAtBegin && m_InputAdapter.Direction != GroundDirection.Down)
         {
             Reset();
             return;
@@ -135,7 +174,7 @@ public class C_PlayerLaunchController : MonoBehaviour
         bool wasGrounded = m_GroundDetector.IsGrounded;
 
         if (m_WasGroundedAtBegin)
-            launchRb.AddForce(dir * 500, ForceMode2D.Force);
+            launchRb.AddForce(dir * m_GroundLauchForce, ForceMode2D.Force);
         else 
             launchRb.AddForce(dir * force, ForceMode2D.Force);
 
@@ -148,10 +187,30 @@ public class C_PlayerLaunchController : MonoBehaviour
         A_OnLaunchRelease?.Invoke();
     }
 
+    private void BeginPrepare(PlayerAnimationStates anim)
+    {
+        if (IsPreparing || m_Target == null) return;
+        var launchRb = m_Target.GetComponent<Rigidbody2D>();
+        if (launchRb == null) return;
+
+        m_rb.linearVelocity = Vector2.zero;
+        IsPreparing = true;
+        m_Anim.SetAnimationState?.Invoke(anim);
+        A_OnLaunchStart?.Invoke();
+    }
+    private void CancelPrepare()
+    {
+        if (!IsPreparing) return;
+        IsPreparing = false;
+        // El motor en el próximo FixedUpdate aplicará idle/walk con WalkInput.
+    }
+
     private void Reset()
     {
         m_Target = null;
         IsPreparing = false;
+        m_TouchTracking = false;
+        m_WasGroundedAtBegin = false;
     }
     private GameObject FindTouchTarget(Vector2 worldPos)
     {
@@ -186,15 +245,19 @@ public class C_PlayerLaunchController : MonoBehaviour
         float finalDistFactor = Mathf.Lerp(1f, rawDistFactor, m_DistanceImpact);
         float finalTimeFactor = Mathf.Lerp(1f, rawTimeFactor, m_TimeImpact);
 
+        float limitless = m_BaseLaunchForce * finalDistFactor * finalTimeFactor;
+        float final = Mathf.Min(limitless, m_MaxLaunchPower);
+        /*
         var finalScoreLimitless = m_BaseLaunchForce * finalDistFactor * finalTimeFactor;
 
         var finalScore = finalScoreLimitless;
         if (finalScore >= m_MaxLaunchPower)
             finalScore = m_MaxLaunchPower;
+        */
 
         if (C_LaunchDebugger.Instance != null)
-            C_LaunchDebugger.Instance.UpdateDebugInfo(finalScore, finalScoreLimitless, finalDistFactor, finalTimeFactor, gesture.Distance, gesture.Duration);
+            C_LaunchDebugger.Instance.UpdateDebugInfo(final, limitless, finalDistFactor, finalTimeFactor, gesture.Distance, gesture.Duration);
         // -- Combinación multiplicativa: peor de los dos domina
-        return finalScore;
+        return final;
     }
 }
