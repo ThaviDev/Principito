@@ -3791,6 +3791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_RotateTowardsPlanet
   m_NearestPlanet: {fileID: 0}
+  m_updateNearestPlanet: 0
   m_CanRotate: 1
   m_Update: 0
 --- !u!114 &160452033
@@ -8248,6 +8249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_RotateTowardsPlanet
   m_NearestPlanet: {fileID: 0}
+  m_updateNearestPlanet: 0
   m_CanRotate: 1
   m_Update: 0
 --- !u!114 &323974633
@@ -11037,6 +11039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_RotateTowardsPlanet
   m_NearestPlanet: {fileID: 0}
+  m_updateNearestPlanet: 0
   m_CanRotate: 1
   m_Update: 0
 --- !u!114 &497581691
@@ -12549,6 +12552,268 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2618681233666761371, guid: a20612fb8a5ce464d9baa5513d01357b, type: 3}
   m_PrefabInstance: {fileID: 584823943}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &586619519
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 854952413757653762, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -27.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 854952413757653762, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 854952413757653762, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 854952413757653762, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.49948153
+      objectReference: {fileID: 0}
+    - target: {fileID: 854952413757653762, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 854952413757653762, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 854952413757653762, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.86632454
+      objectReference: {fileID: 0}
+    - target: {fileID: 854952413757653762, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 854952413757653762, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 854952413757653762, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1926356280708691017, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7830189
+      objectReference: {fileID: 0}
+    - target: {fileID: 1926356280708691017, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7830189
+      objectReference: {fileID: 0}
+    - target: {fileID: 1926356280708691017, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7571645
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972220439625808495, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972220439625808495, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972220439625808495, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2122612938666514828, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2122612938666514828, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2122612938666514828, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719943527178925140, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9056604
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719943527178925140, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9056604
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719943527178925140, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9056604
+      objectReference: {fileID: 0}
+    - target: {fileID: 3089250985914391513, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4290856646729056659, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303907096087376789, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_Radius
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314309672441899312, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6270610561987644043, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6270610561987644043, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6270610561987644043, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760424137718663571, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_PlanetSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760424137718663571, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_ColorPlanet.b
+      value: 0.9056604
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760424137718663571, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_ColorPlanet.g
+      value: 0.9056604
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760424137718663571, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_ColorPlanet.r
+      value: 0.9056604
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760424137718663571, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_GravityRadius
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760424137718663571, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_GravityStrength
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760424137718663571, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_ColorAtmosphere.b
+      value: 0.7830189
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760424137718663571, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_ColorAtmosphere.g
+      value: 0.7830189
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760424137718663571, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_ColorAtmosphere.r
+      value: 0.7571645
+      objectReference: {fileID: 0}
+    - target: {fileID: 8938806832006622824, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_Name
+      value: Planet Prototype
+      objectReference: {fileID: 0}
+    - target: {fileID: 8938806832006622824, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8938806832006622824, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 586619521}
+    - targetCorrespondingSourceObject: {fileID: 8938806832006622824, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 586619526}
+    - targetCorrespondingSourceObject: {fileID: 8938806832006622824, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 586619525}
+  m_SourcePrefab: {fileID: 100100000, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+--- !u!1 &586619520 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8938806832006622824, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+  m_PrefabInstance: {fileID: 586619519}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &586619521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586619520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbfb818aa295dbe489c155ad95c9c9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::C_RotateAroundObj
+  m_NearestPlanet: {fileID: 1703625222}
+  m_maxSpeed: 5
+  m_minSpeed: 5
+  m_DirectionIsLeft: 0
+  m_canRotate: 1
+  m_orbitRadius: 11
+  m_updateNearestPlanet: 0
+  m_useRigidBody: 1
+  m_rigidBody: {fileID: 586619525}
+--- !u!114 &586619523 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6760424137718663571, guid: b73e9a23d88bba149a9efcbcc7ea800f, type: 3}
+  m_PrefabInstance: {fileID: 586619519}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586619520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70cbac536bbc5324ea9ccc66a065080d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::C_PlanetManager
+--- !u!50 &586619525
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586619520}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &586619526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586619520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10af5d4fa00b34b4f9c09aa18300210c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::C_RotateTowardsPlanet
+  m_NearestPlanet: {fileID: 1703625222}
+  m_updateNearestPlanet: 0
+  m_CanRotate: 1
+  m_Update: 1
 --- !u!1001 &587571217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13300,6 +13565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_RotateTowardsPlanet
   m_NearestPlanet: {fileID: 0}
+  m_updateNearestPlanet: 0
   m_CanRotate: 1
   m_Update: 1
 --- !u!212 &620618178
@@ -13394,6 +13660,9 @@ MonoBehaviour:
   m_DirectionIsLeft: 0
   m_canRotate: 1
   m_orbitRadius: 9
+  m_updateNearestPlanet: 0
+  m_useRigidBody: 0
+  m_rigidBody: {fileID: 0}
 --- !u!1001 &624433287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15475,6 +15744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_RotateTowardsPlanet
   m_NearestPlanet: {fileID: 0}
+  m_updateNearestPlanet: 0
   m_CanRotate: 1
   m_Update: 0
 --- !u!114 &684537190
@@ -17237,7 +17507,8 @@ MonoBehaviour:
   - {fileID: 578813272}
   - {fileID: 2129152946}
   - {fileID: 1703625222}
-  m_ChunkRadius: 42
+  - {fileID: 586619523}
+  m_ChunkRadius: 60
   contactFilter:
     useTriggers: 0
     useLayerMask: 0
@@ -17287,7 +17558,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 42
+  m_Radius: 60
 --- !u!1001 &764494086
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25228,6 +25499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_RotateTowardsPlanet
   m_NearestPlanet: {fileID: 0}
+  m_updateNearestPlanet: 0
   m_CanRotate: 1
   m_Update: 0
 --- !u!114 &1067278505
@@ -28809,6 +29081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_RotateTowardsPlanet
   m_NearestPlanet: {fileID: 0}
+  m_updateNearestPlanet: 0
   m_CanRotate: 1
   m_Update: 0
 --- !u!114 &1219960780
@@ -33250,6 +33523,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6988251994019195861, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
+      propertyPath: m_updateNearestPlanet
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8685300683737223734, guid: 18add45565ad41b44bd8c20b815f2d7c, type: 3}
       propertyPath: m_UI
       value: 
@@ -33700,6 +33977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_RotateTowardsPlanet
   m_NearestPlanet: {fileID: 0}
+  m_updateNearestPlanet: 0
   m_CanRotate: 1
   m_Update: 0
 --- !u!114 &1461050098
@@ -40436,7 +40714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.21800001, y: 0.37800002}
-  m_AnchoredPosition: {x: 12.5, y: 12.499092}
+  m_AnchoredPosition: {x: 12.5, y: 12.499084}
   m_SizeDelta: {x: -25, y: -25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1741533559
@@ -63555,6 +63833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_RotateTowardsPlanet
   m_NearestPlanet: {fileID: 0}
+  m_updateNearestPlanet: 0
   m_CanRotate: 1
   m_Update: 0
 --- !u!114 &7296602922498060565
@@ -63570,6 +63849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C_RotateTowardsPlanet
   m_NearestPlanet: {fileID: 0}
+  m_updateNearestPlanet: 0
   m_CanRotate: 1
   m_Update: 0
 --- !u!1001 &7529531156893329744
@@ -63768,3 +64048,4 @@ SceneRoots:
   - {fileID: 1409962477}
   - {fileID: 1484919187}
   - {fileID: 620618179}
+  - {fileID: 586619519}

@@ -4,6 +4,7 @@ using UnityEngine;
 public class C_RotateTowardsPlanet : MonoBehaviour
 {
     [SerializeField] C_PlanetGrav m_NearestPlanet;
+    [SerializeField] bool m_updateNearestPlanet;
     [SerializeField] bool m_CanRotate = true;
     [SerializeField] bool m_Update;
 
@@ -33,6 +34,7 @@ public class C_RotateTowardsPlanet : MonoBehaviour
         if (m_Update)
         {
             AplicarRotacion();
+            if (m_updateNearestPlanet)
             m_NearestPlanet = C_PlanetUtility.GetNearestPlanet(transform.position);
         }
     }
